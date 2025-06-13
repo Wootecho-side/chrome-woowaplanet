@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import './App.css';
 import { motion } from 'motion/react';
 
 function App() {
