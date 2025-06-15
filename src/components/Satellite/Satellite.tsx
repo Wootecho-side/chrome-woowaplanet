@@ -8,7 +8,7 @@ interface SatelliteProps {
 const Satellite = ({ size, name }: SatelliteProps) => {
   return (
     <S.Container size={size}>
-      <p>{name}</p>
+      <S.BodyImage src={`/satellite/${name}.png`} alt="위성이" />
     </S.Container>
   );
 };
