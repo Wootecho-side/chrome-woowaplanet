@@ -6,6 +6,16 @@ export default function PlanetBody({
 }: {
   mousePosition: { x: number; y: number };
 }) {
+  const bodyCenter = { x: 65, y: 65 };
+  const bodyRadius = 57;
+
+  const dx = mousePosition.x - bodyCenter.x;
+  const dy = mousePosition.y - bodyCenter.y;
+  const distance = Math.sqrt(dx * dx + dy * dy);
+
+  const isInsideBody = distance <= bodyRadius;
+
+  const effectiveMousePos = isInsideBody ? null : mousePosition;
   return (
     <motion.div>
       <svg viewBox="0 0 200 200" width="300" height="300">
@@ -22,7 +32,7 @@ export default function PlanetBody({
         </defs>
 
         <circle cx="65" cy="65" r="57" fill="#fff1b7" />
-        <PlanetEyes mousePosition={mousePosition} />
+        <PlanetEyes mousePosition={effectiveMousePos} />
         <circle cx="62" cy="72" r="2" fill="#333" />
       </svg>
     </motion.div>

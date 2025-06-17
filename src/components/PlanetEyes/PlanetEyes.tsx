@@ -1,7 +1,7 @@
 export default function PlanetEyes({
   mousePosition,
 }: {
-  mousePosition: { x: number; y: number };
+  mousePosition: { x: number; y: number } | null;
 }) {
   const centerLeft = { x: 55, y: 60 };
   const centerRight = { x: 75, y: 60 };
@@ -12,13 +12,15 @@ export default function PlanetEyes({
   }: {
     eyeCenter: { x: number; y: number };
   }) => {
+    if (!mousePosition) return { x: 0, y: 0 };
+
     const dx = mousePosition.x - eyeCenter.x;
     const dy = mousePosition.y - eyeCenter.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+    const distance = Math.sqrt(dx * dx + dy * dy);
 
-    if (dist < 1) return { x: 0, y: 0 };
+    if (distance < 1) return { x: 0, y: 0 };
 
-    const scale = Math.min(radius / dist, 1);
+    const scale = Math.min(radius / distance, 1);
     return {
       x: dx * scale,
       y: dy * scale,
