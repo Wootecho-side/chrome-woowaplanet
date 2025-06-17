@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { motion } from 'motion/react';
 
-export const Button = styled(motion.button)<{ size: number; name: string }>`
-  cursor: pointer;
+export const Button = styled(motion.button)<{ size: number; name: string; disabled?: boolean }>`
+  cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   border: none;
@@ -12,5 +12,5 @@ export const Button = styled(motion.button)<{ size: number; name: string }>`
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  filter: opacity(0.5);
+  opacity: ${({ disabled }) => (disabled ? 0.2 : 0.5)};
 `;
