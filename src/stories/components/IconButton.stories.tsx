@@ -22,7 +22,7 @@ export const Dice: Story = {
     size: 50,
     name: 'dice',
     disabled: false,
-    whileHover: { opacity: 0.6, rotate: '5deg' },
+    whileHover: { opacity: 0.8, rotate: '5deg' },
     whileTap: {
       rotate: ['0deg', '-15deg', '0deg'],
       transition: { duration: 0.2 },
@@ -34,5 +34,15 @@ export const Inventory: Story = {
   args: {
     size: 50,
     name: 'inventory',
+    whileHover: { opacity: 0.8 },
+  },
+};
+
+export const Github: Story = {
+  args: {
+    size: 50,
+    name: 'github',
+    whileHover: { opacity: 0.8 },
+    onClick: () => window.open('https://github.com/Wootecho-side/chrome-woowaplanet'),
   },
 };
