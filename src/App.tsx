@@ -1,18 +1,12 @@
-import styled from '@emotion/styled';
-import { motion } from 'motion/react';
+import Planet from "./components/Planet/Planet";
+import BackgroundWrapper from "./components/BackgroundWrapper/BackgroundWrapper";
 
 function App() {
   return (
-    <>
-      <S.Container animate={{ rotate: 360 }}>회전 확인</S.Container>
-    </>
+    <BackgroundWrapper>
+      <Planet />
+    </BackgroundWrapper>
   );
 }
 
 export default App;
-
-const S = {
-  Container: styled(motion.div)`
-    background-color: #ff0088;
-  `,
-};
