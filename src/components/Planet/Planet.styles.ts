@@ -2,27 +2,27 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   position: relative;
-  /* width: 713px;
-  height: auto; */
+  display: flex;
+  align-items: center;
 `;
 
 export const UpLayer = styled.div`
   position: absolute;
-  top: 60px;
-  left: 0;
+  top: 170px;
+  left: -70px;
   z-index: 1;
 `;
 
 export const DownLayer = styled.div`
   position: absolute;
-  top: 105px;
-  left: 0;
+  top: 205px;
+  left: -70px;
   z-index: 3;
 `;
 
 export const BodyLayer = styled.div`
   position: absolute;
-  top: 0;
-  left: 25px;
+  top: 100px;
+  left: -70px;
   z-index: 2;
 `;
