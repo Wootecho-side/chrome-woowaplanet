@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "motion/react";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   position: relative;
   display: flex;
   align-items: center;
