@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 
 export interface IconButtonProps extends ComponentProps<typeof motion.button> {
   size: number;
-  name: string;
+  name: 'dice' | 'inventory' | 'github';
 }
 
 export interface ButtonProps extends ComponentProps<typeof motion.button> {

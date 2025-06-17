@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import GithubButton from '../../components/IconButton/GithubButton/GithubButton';
 
 const meta = {
-  title: 'Components/GithubButton',
+  title: 'Components/Button/Github',
   component: GithubButton,
 } satisfies Meta<typeof GithubButton>;
 

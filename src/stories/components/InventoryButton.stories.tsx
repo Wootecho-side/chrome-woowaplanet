@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import InventoryButton from '../../components/IconButton/InventoryButton/InventoryButton';
 
 const meta = {
-  title: 'Components/InventoryButton',
+  title: 'Components/Button/Inventory',
   component: InventoryButton,
 } satisfies Meta<typeof InventoryButton>;
 
