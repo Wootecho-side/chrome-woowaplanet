@@ -1,17 +1,12 @@
-import type { ButtonHTMLAttributes } from 'react';
 import * as S from './IconButton.style';
 
-interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps {
   size: number;
   name: string;
 }
 
-const IconButton = ({ size, name, ...rest }: IconButtonProps) => {
-  return (
-    <S.Button size={size} {...rest}>
-      {name}
-    </S.Button>
-  );
+const IconButton = ({ size, name }: IconButtonProps) => {
+  return <S.Button size={size} name={name} />;
 };
 
 export default IconButton;
