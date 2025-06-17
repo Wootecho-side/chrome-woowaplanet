@@ -1,11 +1,23 @@
 export default function PlanetEyes({
   mousePosition,
+  center,
 }: {
   mousePosition: { x: number; y: number } | null;
+  center: { x: number; y: number };
 }) {
-  const centerLeft = { x: 55, y: 60 };
-  const centerRight = { x: 75, y: 60 };
-  const radius = 5;
+  const radius = 7;
+
+  const eyeOffsetX = 20;
+  const eyeOffsetY = -10;
+
+  const centerLeft = {
+    x: center.x - eyeOffsetX,
+    y: center.y + eyeOffsetY,
+  };
+  const centerRight = {
+    x: center.x + eyeOffsetX,
+    y: center.y + eyeOffsetY,
+  };
 
   const calcOffset = ({
     eyeCenter,
@@ -35,14 +47,13 @@ export default function PlanetEyes({
       <circle
         cx={centerLeft.x + leftOffset.x}
         cy={centerLeft.y + leftOffset.y}
-        r="2"
+        r="4"
         fill="black"
       />
-
       <circle
         cx={centerRight.x + rightOffset.x}
         cy={centerRight.y + rightOffset.y}
-        r="2"
+        r="4"
         fill="black"
       />
     </g>
