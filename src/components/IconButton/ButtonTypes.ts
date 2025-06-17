@@ -1,0 +1,11 @@
+import type { motion } from 'motion/react';
+import type { ComponentProps } from 'react';
+
+export interface IconButtonProps extends ComponentProps<typeof motion.button> {
+  size: number;
+  name: string;
+}
+
+export interface ButtonProps extends ComponentProps<typeof motion.button> {
+  size: number;
+}

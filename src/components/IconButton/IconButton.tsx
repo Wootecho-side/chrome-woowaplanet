@@ -1,11 +1,5 @@
 import * as S from './IconButton.style';
-import type { motion } from 'motion/react';
-import type { ComponentProps } from 'react';
-
-interface IconButtonProps extends ComponentProps<typeof motion.button> {
-  size: number;
-  name: string;
-}
+import type { IconButtonProps } from './ButtonTypes';
 
 const IconButton = ({ size, name, ...rest }: IconButtonProps) => {
   console.log(rest.disabled);
