@@ -1,4 +1,4 @@
-import * as S from './Satellite.style';
+import * as S from "./Satellite.style";
 
 interface SatelliteProps {
   size: number;

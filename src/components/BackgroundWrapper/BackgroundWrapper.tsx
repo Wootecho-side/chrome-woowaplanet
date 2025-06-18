@@ -10,7 +10,7 @@ export default function BackgroundWrapper({
 
   useEffect(() => {
     const isDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     const colorList = isDarkMode

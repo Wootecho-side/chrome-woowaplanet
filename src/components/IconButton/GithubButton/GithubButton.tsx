@@ -1,11 +1,17 @@
-import type { ButtonProps } from '../ButtonTypes';
-import IconButton from '../IconButton';
+import type { ButtonProps } from "../ButtonTypes";
+import IconButton from "../IconButton";
 
 const GithubButton = ({ size }: ButtonProps) => {
-  const handleClick = () => window.open('https://github.com/Wootecho-side/chrome-woowaplanet');
+  const handleClick = () =>
+    window.open("https://github.com/Wootecho-side/chrome-woowaplanet");
 
   return (
-    <IconButton size={size} name="github" whileHover={{ opacity: 0.8 }} onClick={handleClick} />
+    <IconButton
+      size={size}
+      name="github"
+      whileHover={{ opacity: 0.8 }}
+      onClick={handleClick}
+    />
   );
 };
 

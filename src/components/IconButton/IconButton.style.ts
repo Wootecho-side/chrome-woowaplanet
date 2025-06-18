@@ -1,8 +1,12 @@
-import styled from '@emotion/styled';
-import { motion } from 'motion/react';
+import styled from "@emotion/styled";
+import { motion } from "motion/react";
 
-export const Button = styled(motion.button)<{ size: number; name: string; disabled?: boolean }>`
-  cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
+export const Button = styled(motion.button)<{
+  size: number;
+  name: string;
+  disabled?: boolean;
+}>`
+  cursor: ${({ disabled }) => (disabled ? "" : "pointer")};
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   border: none;
