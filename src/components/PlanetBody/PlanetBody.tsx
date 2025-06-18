@@ -19,14 +19,14 @@ export default function PlanetBody() {
     svgPoint.x = e.clientX;
     svgPoint.y = e.clientY;
 
-    const svgP = svgPoint.matrixTransform(
+    const transformedPoint = svgPoint.matrixTransform(
       svgRef.current.getScreenCTM()?.inverse()
     );
-    const dx = svgP.x - bodyCenter.x;
-    const dy = svgP.y - bodyCenter.y;
+    const dx = transformedPoint.x - bodyCenter.x;
+    const dy = transformedPoint.y - bodyCenter.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    setMousePosition(distance <= bodyRadius ? null : { x: svgP.x, y: svgP.y });
+    setMousePosition(distance <= bodyRadius ? null : { x: transformedPoint.x, y: transformedPoint.y });
   };
   return (
     <S.PlanetBodyWrapper>
