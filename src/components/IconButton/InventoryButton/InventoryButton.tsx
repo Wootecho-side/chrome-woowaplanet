@@ -1,4 +1,4 @@
-import * as S from "./InventoryButton.style";
+import * as S from "./InventoryButton.styles";
 import { useState } from "react";
 import IconButton from "../IconButton";
 import type { ButtonProps } from "../ButtonTypes";

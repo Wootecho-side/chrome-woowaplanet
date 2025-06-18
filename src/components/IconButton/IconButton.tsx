@@ -1,4 +1,4 @@
-import * as S from "./IconButton.style";
+import * as S from "./IconButton.styles";
 import type { IconButtonProps } from "./ButtonTypes";
 
 const IconButton = ({ size, name, ...rest }: IconButtonProps) => {
