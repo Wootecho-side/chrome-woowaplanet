@@ -25,6 +25,11 @@ const shakeAnimations = [
     rotate: [0, 360],
     transition: { duration: 0.8, ease: "easeInOut" },
   },
+
+  {
+    y: [0, -10, 0, 10, 0],
+    transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+  },
 ];
 
 export default function Planet() {
@@ -41,15 +46,17 @@ export default function Planet() {
         setAnimation(nextAnimation);
       }}
     >
-      <S.UpLayer>
-        <UpRing />
-      </S.UpLayer>
-      <S.BodyLayer>
-        <PlanetBody />
-      </S.BodyLayer>
-      <S.DownLayer>
-        <DownRing />
-      </S.DownLayer>
+      <S.PlanetCore>
+        <S.UpLayer>
+          <UpRing />
+        </S.UpLayer>
+        <S.BodyLayer>
+          <PlanetBody />
+        </S.BodyLayer>
+        <S.DownLayer>
+          <DownRing />
+        </S.DownLayer>
+      </S.PlanetCore>
     </S.Wrapper>
   );
 }
