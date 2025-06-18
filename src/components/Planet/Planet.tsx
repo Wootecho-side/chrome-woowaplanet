@@ -3,8 +3,9 @@ import DownRing from "../DownRing/DownRing";
 import PlanetBody from "../PlanetBody/PlanetBody";
 import UpRing from "../UpRing/UpRing";
 import * as S from "./Planet.styles";
+import type { TargetAndTransition } from "motion";
 
-const shakeAnimations = [
+const shakeAnimations: TargetAndTransition[] = [
   // 좌우로 빠르게 흔들림
   {
     rotate: [0, -10, 10, -10, 0],
