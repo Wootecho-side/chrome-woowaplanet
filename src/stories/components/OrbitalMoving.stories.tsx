@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import OrbitalMoving from '../../components/OrbitalMoving/OrbitalMoving';
-import Satellite from '../../components/Satellite/Satellite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import OrbitalMoving from "../../components/OrbitalMoving/OrbitalMoving";
+import Satellite from "../../components/Satellite/Satellite";
 
 const meta: Meta<typeof OrbitalMoving> = {
-  title: 'Components/OrbitalMoving',
+  title: "Components/OrbitalMoving",
   component: OrbitalMoving,
 };
 
@@ -32,19 +32,20 @@ export const Demo: Story = {
           radius={{ x: 150, y: 40 }}
           speed={200}
           initialAngle={0}
-          initialOrbitRotationAngle={-30}>
+          initialOrbitRotationAngle={-30}
+        >
           <Satellite name="flamingo" size={50} />
         </OrbitalMoving>
         <div
           style={{
-            position: 'absolute',
-            left: '300px',
-            top: '200px',
+            position: "absolute",
+            left: "300px",
+            top: "200px",
             width: 200,
             height: 200,
-            transform: 'translate(-50%, -50%)',
-            background: '#ffd966',
-            borderRadius: '50%',
+            transform: "translate(-50%, -50%)",
+            background: "#ffd966",
+            borderRadius: "50%",
             zIndex: 100,
           }}
         />

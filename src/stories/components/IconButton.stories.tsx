@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import IconButton from '../../components/IconButton/IconButton';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import IconButton from "../../components/IconButton/IconButton";
 
 const meta = {
-  title: 'Components/Button/Icon',
+  title: "Components/Button/Icon",
   component: IconButton,
 } satisfies Meta<typeof IconButton>;
 
@@ -13,6 +13,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: 50,
-    name: 'dice',
+    name: "dice",
   },
 };

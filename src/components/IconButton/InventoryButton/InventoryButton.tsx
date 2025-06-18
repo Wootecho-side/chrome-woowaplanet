@@ -1,7 +1,7 @@
-import * as S from './InventoryButton.style';
-import { useState } from 'react';
-import IconButton from '../IconButton';
-import type { ButtonProps } from '../ButtonTypes';
+import * as S from "./InventoryButton.styles";
+import { useState } from "react";
+import IconButton from "../IconButton";
+import type { ButtonProps } from "../ButtonTypes";
 
 const InventoryButton = ({ size }: ButtonProps) => {
   const [isClicked, setIsClicked] = useState(false);

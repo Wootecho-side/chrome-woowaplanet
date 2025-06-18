@@ -35,7 +35,7 @@ const shakeAnimations: TargetAndTransition[] = [
 
 export default function Planet() {
   const [animation, setAnimation] = useState(
-    shakeAnimations[Math.floor(Math.random() * shakeAnimations.length)]
+    shakeAnimations[Math.floor(Math.random() * shakeAnimations.length)],
   );
 
   return (

@@ -1,5 +1,5 @@
-import { useMotionValue, useTransform, useAnimationFrame } from 'framer-motion';
-import * as S from './OrbitalMoving.style';
+import { useMotionValue, useTransform, useAnimationFrame } from "framer-motion";
+import * as S from "./OrbitalMoving.styles";
 
 interface OrbitalMovingProps {
   center: { x: number; y: number; zIndex?: number };
@@ -25,10 +25,15 @@ const OrbitalMoving = ({
 
   useAnimationFrame((t, delta) => {
     angle.set(initialAngle + (t / 1000) * speed);
-    rotationAngle.set((rotationAngle.get() + (orbitRotationSpeed * delta) / 1000) % 360);
+    rotationAngle.set(
+      (rotationAngle.get() + (orbitRotationSpeed * delta) / 1000) % 360
+    );
   });
 
-  const rotationRad = useTransform(rotationAngle, (deg) => (deg * Math.PI) / 180);
+  const rotationRad = useTransform(
+    rotationAngle,
+    (deg) => (deg * Math.PI) / 180
+  );
 
   const x = useTransform([angle, rotationRad], ([deg, rotRad]: number[]) => {
     const rad = (deg * Math.PI) / 180;
@@ -52,7 +57,9 @@ const OrbitalMoving = ({
     const normalizedDeg = ((deg % 360) + 360) % 360;
     const centerZIndex = center.zIndex ?? 0;
 
-    return normalizedDeg >= 0 && normalizedDeg <= 180 ? centerZIndex + 1 : centerZIndex - 1;
+    return normalizedDeg >= 0 && normalizedDeg <= 180
+      ? centerZIndex + 1
+      : centerZIndex - 1;
   });
 
   return <S.Container style={{ x, y, zIndex }}>{children}</S.Container>;

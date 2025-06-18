@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import InventoryButton from '../../components/IconButton/InventoryButton/InventoryButton';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import InventoryButton from "../../components/IconButton/InventoryButton/InventoryButton";
 
 const meta = {
-  title: 'Components/Button/Inventory',
+  title: "Components/Button/Inventory",
   component: InventoryButton,
 } satisfies Meta<typeof InventoryButton>;
 
