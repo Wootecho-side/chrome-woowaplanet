@@ -12,13 +12,13 @@ export default function UpRing() {
       <path
         d="M25 100C25 46.5 117.994 36.453 306.552 26C480.654 33.7441 600.5 23.5 596 94.5"
         stroke="black"
-        stroke-width="60"
+        strokeWidth="60"
       />
 
       <path
         d="M25 100C25 46.5 117.994 36.453 306.552 26C480.654 33.7441 600.5 23.5 596 94.5"
         stroke="pink"
-        stroke-width="40"
+        strokeWidth="40"
       />
     </S.StyledRing>
   );
