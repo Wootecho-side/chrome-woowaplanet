@@ -19,8 +19,8 @@ export const PlanetCore = styled(motion.div)`
 
 export const BodyLayer = styled(motion.div)`
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 48%;
   transform: translate(-50%, -50%);
   z-index: 2;
 `;
@@ -35,7 +35,7 @@ export const UpLayer = styled.div`
 
 export const DownLayer = styled.div`
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;

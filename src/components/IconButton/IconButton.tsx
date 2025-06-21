@@ -1,14 +1,16 @@
 import * as S from "./IconButton.styles";
 import type { IconButtonProps } from "./ButtonTypes";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 const IconButton = ({ size, name, ...rest }: IconButtonProps) => {
-  console.log(rest.disabled);
+  const isDarkMode = useDarkMode();
+  const iconName = isDarkMode ? `${name}-darkMode` : name;
 
   return (
     <S.Button
       {...rest}
       size={size}
-      name={name}
+      name={iconName}
       whileHover={rest.disabled ? undefined : rest.whileHover}
     />
   );
