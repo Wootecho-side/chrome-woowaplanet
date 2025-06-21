@@ -8,7 +8,6 @@ export const Wrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #000;
 `;
 
 export const PlanetCore = styled.div`
