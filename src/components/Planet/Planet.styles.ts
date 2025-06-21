@@ -1,23 +1,23 @@
 import styled from "@emotion/styled";
 import { motion } from "motion/react";
 
-export const Wrapper = styled(motion.div)`
-  width: 200px;
-  height: 200px;
+export const Wrapper = styled.div`
+  width: 600px;
+  height: 600px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const PlanetCore = styled.div`
+export const PlanetCore = styled(motion.div)`
   position: relative;
   width: 120px;
   height: 120px;
   transform-origin: center;
 `;
 
-export const BodyLayer = styled.div`
+export const BodyLayer = styled(motion.div)`
   position: absolute;
   top: 50%;
   left: 50%;

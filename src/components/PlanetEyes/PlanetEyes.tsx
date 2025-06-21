@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function PlanetEyes({
   mousePosition,
   center,
@@ -5,7 +7,7 @@ export default function PlanetEyes({
   mousePosition: { x: number; y: number } | null;
   center: { x: number; y: number };
 }) {
-  const radius = 7;
+  const radius = 10;
 
   const eyeOffsetX = 20;
   const eyeOffsetY = -10;
@@ -44,17 +46,23 @@ export default function PlanetEyes({
 
   return (
     <g>
-      <circle
-        cx={centerLeft.x + leftOffset.x}
-        cy={centerLeft.y + leftOffset.y}
+      <motion.circle
+        animate={{
+          cx: centerLeft.x + leftOffset.x,
+          cy: centerLeft.y + leftOffset.y,
+        }}
         r="4"
         fill="black"
+        transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
       />
-      <circle
-        cx={centerRight.x + rightOffset.x}
-        cy={centerRight.y + rightOffset.y}
+      <motion.circle
+        animate={{
+          cx: centerRight.x + rightOffset.x,
+          cy: centerRight.y + rightOffset.y,
+        }}
         r="4"
         fill="black"
+        transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
       />
     </g>
   );
