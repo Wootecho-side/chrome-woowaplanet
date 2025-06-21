@@ -20,7 +20,7 @@ export default function PlanetBody() {
     svgPoint.y = e.clientY;
 
     const transformedPoint = svgPoint.matrixTransform(
-      svgRef.current.getScreenCTM()?.inverse(),
+      svgRef.current.getScreenCTM()?.inverse()
     );
     const dx = transformedPoint.x - bodyCenter.x;
     const dy = transformedPoint.y - bodyCenter.y;
@@ -29,7 +29,7 @@ export default function PlanetBody() {
     setMousePosition(
       distance <= bodyRadius
         ? null
-        : { x: transformedPoint.x, y: transformedPoint.y },
+        : { x: transformedPoint.x, y: transformedPoint.y }
     );
   };
   return (
@@ -42,18 +42,39 @@ export default function PlanetBody() {
         onMouseMove={handleMouseMove}
       >
         <defs>
-          <filter id="wavy-line">
+          <filter
+            id="hand-drawn-outline"
+            x="-10%"
+            y="-10%"
+            width="120%"
+            height="120%"
+            primitiveUnits="userSpaceOnUse"
+          >
             <feTurbulence
-              type="turbulence"
-              baseFrequency="0.01"
-              numOctaves="1"
-              result="turbulence"
+              type="fractalNoise"
+              baseFrequency="0.02"
+              numOctaves="3"
+              seed="5"
+              result="noise"
             />
-            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="4" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="noise"
+              scale="6"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
           </filter>
         </defs>
-
-        <circle cx="150" cy="150" r="100" fill="#fff1b7" />
+        <circle
+          cx="150"
+          cy="150"
+          r="100"
+          fill="#fff1b7"
+          stroke="#000000"
+          strokeWidth="4"
+          filter="url(#hand-drawn-outline)"
+        />
         <PlanetEyes mousePosition={mousePosition} center={{ x: 150, y: 150 }} />
         <circle cx="150" cy="160" r="4" fill="#333" />
       </svg>
