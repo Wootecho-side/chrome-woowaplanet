@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "motion/react";
 
-export const Wrapper = styled(motion.div)`
+export const Wrapper = styled.div`
   width: 600px;
   height: 600px;
   position: relative;
@@ -10,7 +10,7 @@ export const Wrapper = styled(motion.div)`
   justify-content: center;
 `;
 
-export const PlanetCore = styled.div`
+export const PlanetCore = styled(motion.div)`
   position: relative;
   width: 120px;
   height: 120px;
