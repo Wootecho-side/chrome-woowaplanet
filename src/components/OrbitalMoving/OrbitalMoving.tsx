@@ -58,8 +58,8 @@ const OrbitalMoving = ({
     const centerZIndex = center.zIndex ?? 0;
 
     return normalizedDeg >= 0 && normalizedDeg <= 180
-      ? centerZIndex + 1
-      : centerZIndex - 1;
+      ? centerZIndex + 5
+      : centerZIndex - 5;
   });
 
   return <S.Container style={{ x, y, zIndex }}>{children}</S.Container>;
