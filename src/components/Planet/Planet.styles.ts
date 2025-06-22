@@ -22,7 +22,7 @@ export const BodyLayer = styled(motion.div)`
   top: 45%;
   left: 48%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 12;
 `;
 
 export const UpLayer = styled.div`
@@ -30,7 +30,7 @@ export const UpLayer = styled.div`
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 11;
 `;
 
 export const DownLayer = styled.div`
@@ -38,5 +38,5 @@ export const DownLayer = styled.div`
   top: 45%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 13;
 `;

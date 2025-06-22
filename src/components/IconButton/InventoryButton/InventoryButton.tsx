@@ -1,21 +1,21 @@
 import * as S from "./InventoryButton.styles";
-import { useState } from "react";
 import IconButton from "../IconButton";
 import type { ButtonProps } from "../ButtonTypes";
 
-const InventoryButton = ({ size }: ButtonProps) => {
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    setIsClicked((prev) => !prev);
-  };
-
+const InventoryButton = ({
+  size,
+  isClicked,
+  onClick,
+  isDarkMode,
+}: ButtonProps & { isClicked: boolean }) => {
   return (
     <S.Container size={size} isClicked={isClicked}>
       <IconButton
         size={size}
         name="inventory"
         whileHover={{ opacity: 0.8 }}
-        onClick={handleClick}
+        onClick={onClick}
+        isDarkMode={isDarkMode}
       />
     </S.Container>
   );
