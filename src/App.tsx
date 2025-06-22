@@ -8,19 +8,21 @@ import styled from "@emotion/styled";
 import { SatelliteData } from "./data/SatelliteData";
 import OrbitalMoving from "./components/OrbitalMoving/OrbitalMoving";
 import Satellite from "./components/Satellite/Satellite";
+import { useDarkMode } from "./hooks/useDarkMode";
 
 function App() {
   const [selected, setSelected] = useState<number>(1);
+  const isDarkMode = useDarkMode();
 
   const selectedSatellite = SatelliteData.find(
     (satellite) => satellite.id === selected
   );
 
   return (
-    <BackgroundWrapper>
+    <BackgroundWrapper isDarkMode={isDarkMode}>
       <Header>
-        <DiceButton size={40} />
-        <GithubButton size={40} />
+        <DiceButton size={40} isDarkMode={isDarkMode} />
+        <GithubButton size={40} isDarkMode={isDarkMode} />
       </Header>
       <Body>
         {selectedSatellite && (
@@ -42,6 +44,7 @@ function App() {
           inventory={SatelliteData}
           selected={selected}
           setSelected={setSelected}
+          isDarkMode={isDarkMode}
         />
       </Footer>
     </BackgroundWrapper>

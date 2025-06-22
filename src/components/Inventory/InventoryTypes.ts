@@ -9,4 +9,5 @@ export interface InventoryProps {
   inventory: Satellite[];
   selected: number | null;
   setSelected: (index: number) => void;
+  isDarkMode?: boolean;
 }

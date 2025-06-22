@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import * as S from "./BackgroundWrapper.styles";
-import { useDarkMode } from "../../hooks/useDarkMode";
 
 export default function BackgroundWrapper({
   children,
+  isDarkMode = false,
 }: {
   children: React.ReactNode;
+  isDarkMode?: boolean;
 }) {
   const [background, setBackground] = useState<string>("ffffff");
-
-  const isDarkMode = useDarkMode();
 
   const colorList = isDarkMode
     ? ["#001427", "#000B14", "#0B1D3A", "#1A2B4C", "#14213D"]

@@ -6,6 +6,7 @@ const InventoryButton = ({
   size,
   isClicked,
   onClick,
+  isDarkMode,
 }: ButtonProps & { isClicked: boolean }) => {
   return (
     <S.Container size={size} isClicked={isClicked}>
@@ -14,6 +15,7 @@ const InventoryButton = ({
         name="inventory"
         whileHover={{ opacity: 0.8 }}
         onClick={onClick}
+        isDarkMode={isDarkMode}
       />
     </S.Container>
   );

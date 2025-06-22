@@ -1,9 +1,7 @@
 import * as S from "./IconButton.styles";
 import type { IconButtonProps } from "./ButtonTypes";
-import { useDarkMode } from "../../hooks/useDarkMode";
 
-const IconButton = ({ size, name, ...rest }: IconButtonProps) => {
-  const isDarkMode = useDarkMode();
+const IconButton = ({ size, name, isDarkMode, ...rest }: IconButtonProps) => {
   const iconName = isDarkMode ? `${name}-darkMode` : name;
 
   return (

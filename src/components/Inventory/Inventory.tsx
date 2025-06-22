@@ -8,6 +8,7 @@ export default function Inventory({
   inventory,
   selected,
   setSelected,
+  isDarkMode = false,
 }: InventoryProps) {
   const [showItems, setShowItems] = useState(false);
 
@@ -24,6 +25,7 @@ export default function Inventory({
         size={50}
         isClicked={showItems}
         onClick={toggleInventory}
+        isDarkMode={isDarkMode}
       />
 
       <AnimatePresence>
