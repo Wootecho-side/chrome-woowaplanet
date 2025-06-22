@@ -5,7 +5,7 @@ export const SatelliteData: Satellite[] = [
   { id: 2, name: "flamingo", rank: "rare", icon: "🦩" },
   { id: 3, name: "earth", rank: "normal", icon: "🌍" },
   { id: 4, name: "tomato", rank: "rare", icon: "🍅" },
-  { id: 5, name: "satellite", rank: "normal", icon: "🛰️" },
+  { id: 5, name: "mechanic", rank: "normal", icon: "🛰️" },
   { id: 6, name: "mouse", rank: "normal", icon: "🐭" },
   { id: 7, name: "pudding", rank: "normal", icon: "🍮" },
   { id: 8, name: "cat", rank: "normal", icon: "🐱" },
