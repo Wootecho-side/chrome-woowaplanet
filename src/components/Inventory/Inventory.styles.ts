@@ -19,8 +19,9 @@ interface ItemBoxProps {
 }
 
 export const ItemBox = styled(motion.div)<ItemBoxProps>`
-  font-size: 40px;
-  padding: 8px;
+  text-align: center;
+  font-size: 35px;
+  padding: 10px 8px;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
