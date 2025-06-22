@@ -2,19 +2,13 @@ import Planet from "./components/Planet/Planet";
 import BackgroundWrapper from "./components/BackgroundWrapper/BackgroundWrapper";
 import Inventory from "./components/Inventory/Inventory";
 import { useState } from "react";
-import type { Satellite } from "./components/Inventory/InventoryTypes";
 import DiceButton from "./components/IconButton/DiceButton/DiceButton";
 import GithubButton from "./components/IconButton/GithubButton/GithubButton";
 import styled from "@emotion/styled";
+import { SatelliteData } from "./data/SatelliteData";
 
 function App() {
   const [selected, setSelected] = useState<number>(1);
-
-  const inventoryItem: Satellite[] = [
-    { id: 1, name: "tomato", rank: "rare", icon: "🍅" },
-    { id: 2, name: "earth", rank: "normal", icon: "🌍" },
-    { id: 3, name: "flamingo", rank: "rare", icon: "🦩" },
-  ];
 
   return (
     <BackgroundWrapper>
@@ -27,7 +21,7 @@ function App() {
       </Body>
       <Footer>
         <Inventory
-          inventory={inventoryItem}
+          inventory={SatelliteData}
           selected={selected}
           setSelected={setSelected}
         />
