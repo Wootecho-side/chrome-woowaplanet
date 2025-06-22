@@ -1,6 +1,10 @@
-import type { Satellite } from "../components/Inventory/InventoryTypes";
-import { getRandomInteger } from "./getRandom";
-import { getRank } from "./getRank";
+import type { Rank, Satellite } from "../components/Inventory/InventoryTypes";
+import { getRandom, getRandomInteger } from "./getRandom";
+
+const getRank = (rareChance: number, seed?: number): Rank => {
+  const randomNumber = getRandom(seed);
+  return randomNumber < rareChance ? "rare" : "normal";
+};
 
 const getNewSatellite = (
   satelliteList: Satellite[],
