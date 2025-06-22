@@ -8,4 +8,5 @@ export interface IconButtonProps extends ComponentProps<typeof motion.button> {
 
 export interface ButtonProps extends ComponentProps<typeof motion.button> {
   size: number;
+  onClick?: () => void;
 }
