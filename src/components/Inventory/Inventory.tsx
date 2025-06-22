@@ -41,6 +41,7 @@ export default function Inventory({
                 key={item.id}
                 layout
                 isSelected={selected === item.id}
+                isDarkMode={isDarkMode}
                 onClick={() => handleSelect(item.id)}
               >
                 {item.icon}
