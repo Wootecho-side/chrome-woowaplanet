@@ -33,4 +33,11 @@ export const ItemBox = styled(motion.div)<ItemBoxProps>`
       isDarkMode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"
     };
   `}
+
+  &:hover {
+    background-color: ${({ isSelected, isDarkMode = false }) => {
+      if (isSelected) return undefined;
+      return isDarkMode ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)";
+    }};
+  }
 `;
