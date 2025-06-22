@@ -1,7 +1,9 @@
+export type Rank = "normal" | "rare";
+
 export interface Satellite {
   id: number;
   name: string;
-  rank: "normal" | "rare";
+  rank: Rank;
   icon: string;
 }
 

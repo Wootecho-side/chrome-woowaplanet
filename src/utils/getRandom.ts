@@ -11,3 +11,12 @@ export const getRandom = (seed?: number): number => {
 
   return (x >>> 0) / 0xffffffff;
 };
+
+export const getRandomInteger = (
+  min: number,
+  max: number,
+  seed?: number
+): number => {
+  const random = getRandom(seed);
+  return Math.floor(random * (max - min + 1)) + min;
+};
