@@ -19,6 +19,7 @@ export default function Inventory({
   const handleSelect = (id: number) => {
     setSelected(id);
   };
+
   return (
     <S.InventoryWrapper>
       <InventoryButton
@@ -40,8 +41,13 @@ export default function Inventory({
               <S.ItemBox
                 key={item.id}
                 layout
+                layoutId={`item-${item.id}`}
                 isSelected={selected === item.id}
                 isDarkMode={isDarkMode}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
                 onClick={() => handleSelect(item.id)}
               >
                 {item.icon}
