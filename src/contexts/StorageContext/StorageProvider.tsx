@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SatelliteData } from "../../data/SatelliteData";
 import { StorageContext } from "./useStorageContext";
+import type { Satellite } from "../../components/Inventory/InventoryTypes";
 
 export const StorageProvider = ({
   children,
@@ -32,9 +33,9 @@ export const StorageProvider = ({
         token,
         addToken,
         removeToken,
-        satelliteList: SatelliteData.filter(({ id }) =>
-          satelliteIdList.includes(id)
-        ),
+        satelliteList: satelliteIdList
+          .map((id) => SatelliteData.find((s) => s.id === id))
+          .filter((s): s is Satellite => s !== undefined),
         addSatelliteIdList,
         selectedSatelliteId,
         setSelectedSatelliteId,
