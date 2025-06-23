@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 export default function PlanetEyes({
   mousePosition,
   center,
+  eyeColor,
 }: {
   mousePosition: { x: number; y: number } | null;
   center: { x: number; y: number };
+  eyeColor: string;
 }) {
   const radius = 10;
 
@@ -52,7 +54,7 @@ export default function PlanetEyes({
           cy: centerLeft.y + leftOffset.y,
         }}
         r="4"
-        fill="black"
+        fill={eyeColor}
         transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
       />
       <motion.circle
@@ -61,7 +63,7 @@ export default function PlanetEyes({
           cy: centerRight.y + rightOffset.y,
         }}
         r="4"
-        fill="black"
+        fill={eyeColor}
         transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
       />
     </g>
