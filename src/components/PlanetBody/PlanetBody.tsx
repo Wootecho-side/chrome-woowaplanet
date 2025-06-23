@@ -2,7 +2,15 @@ import * as S from "./PlanetBody.styles";
 import PlanetEyes from "../PlanetEyes/PlanetEyes";
 import { useRef, useState } from "react";
 
-export default function PlanetBody() {
+export default function PlanetBody({
+  bodyColor = "#fff1b7",
+  eyeColor = "#000",
+  isDarkMode = false,
+}: {
+  bodyColor?: string;
+  eyeColor?: string;
+  isDarkMode?: boolean;
+}) {
   const [mousePosition, setMousePosition] = useState<{
     x: number;
     y: number;
@@ -70,13 +78,17 @@ export default function PlanetBody() {
           cx="150"
           cy="150"
           r="100"
-          fill="#fff1b7"
-          stroke="#000000"
+          fill={bodyColor}
+          stroke={isDarkMode ? "#ffffff" : "#000000"}
           strokeWidth="4"
           filter="url(#hand-drawn-outline)"
         />
-        <PlanetEyes mousePosition={mousePosition} center={{ x: 150, y: 150 }} />
-        <circle cx="150" cy="160" r="4" fill="#333" />
+        <PlanetEyes
+          mousePosition={mousePosition}
+          center={{ x: 150, y: 150 }}
+          eyeColor={eyeColor}
+        />
+        <circle cx="150" cy="160" r="4" fill={eyeColor} />
       </svg>
     </S.PlanetBodyWrapper>
   );

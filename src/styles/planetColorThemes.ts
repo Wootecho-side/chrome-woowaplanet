@@ -1,0 +1,98 @@
+export const planetColorThemes = [
+  {
+    name: "레드벨벳",
+    bodyColor: "#B71C1C",
+    ringColor: "#F5E6DC",
+    eyeColor: "#000000",
+  },
+  {
+    name: "말차",
+    bodyColor: "#578A32",
+    ringColor: "#CAE4C2",
+    eyeColor: "#000000",
+  },
+  {
+    name: "토마토",
+    bodyColor: "#FF6347",
+    ringColor: "#C0E218",
+    eyeColor: "#000000",
+  },
+  {
+    name: "티라미수",
+    bodyColor: "#7B3F00",
+    ringColor: "#F6E4D2",
+    eyeColor: "#ffffff",
+  },
+  {
+    name: "벚꽃",
+    bodyColor: "#F8C8DC",
+    ringColor: "#FFF0F5",
+    eyeColor: "#000000",
+  },
+  {
+    name: "민초",
+    bodyColor: "#AAF0D1",
+    ringColor: "#5D3A00",
+    eyeColor: "#000000",
+  },
+  {
+    name: "솜사탕",
+    bodyColor: "#AEDFF7",
+    ringColor: "#FFC0CB",
+    eyeColor: "#000000",
+  },
+  {
+    name: "달보라",
+    bodyColor: "#8E94F2",
+    ringColor: "#BBADFF",
+    eyeColor: "#000000",
+  },
+  {
+    name: "그림자",
+    bodyColor: "#211A1D",
+    ringColor: "#211A1D",
+    eyeColor: "#ffffff",
+  },
+  {
+    name: "풋사과",
+    bodyColor: "#99AA38",
+    ringColor: "#14591D",
+    eyeColor: "#000000",
+  },
+  {
+    name: "진홍빛",
+    bodyColor: "#D7263D",
+    ringColor: "#02182B",
+    eyeColor: "#000000",
+  },
+  {
+    name: "라임빛",
+    bodyColor: "#D6F9DD",
+    ringColor: "#99F7AB",
+    eyeColor: "#000000",
+  },
+  {
+    name: "소다맛",
+    bodyColor: "#70D6FF",
+    ringColor: "#1789FC",
+    eyeColor: "#000000",
+  },
+  {
+    name: "에메랄드",
+    bodyColor: "#16DB93",
+    ringColor: "#0F9563",
+    eyeColor: "#000000",
+  },
+  {
+    name: "유채꽃",
+    bodyColor: "#FCFF4B",
+    ringColor: "#23CE6B",
+    eyeColor: "#000000",
+  },
+  {
+    name: "마카롱",
+    bodyColor: "#FF69B4",
+    ringColor: "#EDF5FC",
+    eyeColor: "#000000",
+  },
+];
