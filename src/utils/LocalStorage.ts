@@ -1,11 +1,11 @@
 interface LocalStorage {
-  setJSON: (key: string, JSONdata: unknown) => void;
+  setJSON: (key: string, data: unknown) => void;
   getJSON: <T>(key: string) => T | null;
 }
 
 const LocalStorage: LocalStorage = {
-  setJSON(key, JSONdata) {
-    localStorage.setItem(key, JSON.stringify(JSONdata));
+  setJSON(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
   },
 
   getJSON<T>(key: string) {
