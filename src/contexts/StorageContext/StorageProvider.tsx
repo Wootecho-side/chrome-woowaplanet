@@ -21,6 +21,7 @@ export const StorageProvider = ({
     selectedSatelliteId,
     setSelectedSatelliteId,
     setStorageValue,
+    isInitialized,
   } = useInitStorage();
 
   const addToken = (value: number) => {
@@ -58,6 +59,7 @@ export const StorageProvider = ({
         addSatelliteIdList,
         selectedSatelliteId,
         handleSelectedSatelliteId,
+        isInitialized,
       }}
     >
       {children}

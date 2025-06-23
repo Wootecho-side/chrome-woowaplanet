@@ -9,6 +9,7 @@ interface StorageContext {
   addSatelliteIdList: (id: number) => void;
   selectedSatelliteId: number;
   handleSelectedSatelliteId: (id: number) => void;
+  isInitialized: boolean;
 }
 
 export const StorageContext = createContext<StorageContext | null>(null);

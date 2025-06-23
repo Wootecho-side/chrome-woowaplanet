@@ -17,6 +17,7 @@ export default function useInitStorage() {
   const [selectedSatelliteId, setSelectedSatelliteId] = useState<number>(
     INIT_VALUE.SELECTED_SATELLITE_ID
   );
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     initStorageValue<number>(TOKEN_STORAGE_KEY, INIT_VALUE.TOKEN);
@@ -38,6 +39,8 @@ export default function useInitStorage() {
       getStorageValue<number>(SELECTED_SATELLITE_ID_KEY) ??
         INIT_VALUE.SELECTED_SATELLITE_ID
     );
+
+    setIsInitialized(true);
   }, [getStorageValue, initStorageValue]);
 
   return {
@@ -48,5 +51,6 @@ export default function useInitStorage() {
     selectedSatelliteId,
     setSelectedSatelliteId,
     setStorageValue,
+    isInitialized,
   };
 }
