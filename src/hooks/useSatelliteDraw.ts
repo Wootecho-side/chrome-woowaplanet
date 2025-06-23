@@ -1,9 +1,7 @@
+import { DRAW_PRICE, RARE_CHANCE } from "../constants/config";
 import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
 import { SatelliteData } from "../data/SatelliteData";
 import getNewSatellite from "../utils/getNewSatellite";
-
-const DRAW_PRICE = 200;
-const RARE_CHANCE = 0.05;
 
 const useSatelliteDraw = () => {
   const { token, removeToken, satelliteList, addSatelliteIdList } =
