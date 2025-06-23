@@ -15,6 +15,7 @@ export const PlanetCore = styled(motion.div)`
   width: 120px;
   height: 120px;
   transform-origin: center;
+  z-index: 10;
 `;
 
 export const BodyLayer = styled(motion.div)`
