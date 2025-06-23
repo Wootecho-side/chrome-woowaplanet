@@ -15,6 +15,7 @@ const useSatelliteDraw = () => {
 
   const handleDrawButton = () => {
     removeToken(DRAW_PRICE);
+    console.log("hello");
 
     let newSatellite;
     while (true) {
