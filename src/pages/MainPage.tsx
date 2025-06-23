@@ -41,7 +41,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
             <Satellite name={selectedSatellite.name} size={50} />
           </OrbitalMoving>
         )}
-        <Planet />
+        <Planet isDarkMode={isDarkMode} />
       </Body>
       <Footer>
         <Inventory
