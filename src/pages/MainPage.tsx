@@ -7,28 +7,17 @@ import Inventory from "../components/Inventory/Inventory";
 import styled from "@emotion/styled";
 import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
 import Shop from "../components/Shop/Shop";
-import { useEffect, useRef } from "react";
-import { getRandomInteger } from "../utils/getRandom";
-import { FREE_TOKEN_RANGE } from "../constants/config";
+import useRefreshAddToken from "../hooks/useRefreshAddToken";
 
 function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   const {
     token,
-    addToken,
     satelliteList,
     selectedSatelliteId,
     handleSelectedSatelliteId,
-    isInitialized,
   } = useStorageContext();
 
-  const hasAddedToken = useRef(false);
-
-  useEffect(() => {
-    if (isInitialized && !hasAddedToken.current) {
-      addToken(getRandomInteger(FREE_TOKEN_RANGE.MIN, FREE_TOKEN_RANGE.MAX));
-      hasAddedToken.current = true;
-    }
-  }, [isInitialized, addToken]);
+  useRefreshAddToken();
 
   const selectedSatellite = SatelliteData.find(
     (satellite) => satellite.id === selectedSatelliteId
