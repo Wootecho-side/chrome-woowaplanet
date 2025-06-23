@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SatelliteData } from "../data/SatelliteData";
 import GithubButton from "../components/IconButton/GithubButton/GithubButton";
 import OrbitalMoving from "../components/OrbitalMoving/OrbitalMoving";
@@ -10,12 +9,16 @@ import { useStorageContext } from "../contexts/StorageContext/useStorageContext"
 import Shop from "../components/Shop/Shop";
 
 function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
-  const [selected, setSelected] = useState<number>(1);
+  const {
+    token,
+    satelliteList,
+    selectedSatelliteId,
+    handleSelectedSatelliteId,
+  } = useStorageContext();
 
   const selectedSatellite = SatelliteData.find(
-    (satellite) => satellite.id === selected
+    (satellite) => satellite.id === selectedSatelliteId
   );
-  const { token, satelliteList } = useStorageContext();
 
   return (
     <>
@@ -40,8 +43,8 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
       <Footer>
         <Inventory
           inventory={satelliteList}
-          selected={selected}
-          setSelected={setSelected}
+          selected={selectedSatelliteId}
+          setSelected={handleSelectedSatelliteId}
           isDarkMode={isDarkMode}
         />
       </Footer>

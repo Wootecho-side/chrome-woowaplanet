@@ -8,7 +8,7 @@ interface StorageContext {
   satelliteList: Satellite[];
   addSatelliteIdList: (id: number) => void;
   selectedSatelliteId: number;
-  setSelectedSatelliteId: React.Dispatch<React.SetStateAction<number>>;
+  handleSelectedSatelliteId: (id: number) => void;
 }
 
 export const StorageContext = createContext<StorageContext | null>(null);
