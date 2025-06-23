@@ -12,7 +12,7 @@ export const StorageProvider = ({
   const [selectedSatelliteId, setSelectedSatelliteId] = useState<number>(1);
 
   useEffect(() => {
-    setToken(500);
+    setToken(2200);
     setSatelliteIdList([1]);
     setSelectedSatelliteId(1);
   }, []);

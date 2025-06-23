@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SatelliteData } from "../data/SatelliteData";
-import DiceButton from "../components/IconButton/DiceButton/DiceButton";
 import GithubButton from "../components/IconButton/GithubButton/GithubButton";
 import OrbitalMoving from "../components/OrbitalMoving/OrbitalMoving";
 import Satellite from "../components/Satellite/Satellite";
@@ -8,6 +7,7 @@ import Planet from "../components/Planet/Planet";
 import Inventory from "../components/Inventory/Inventory";
 import styled from "@emotion/styled";
 import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
+import Shop from "../components/Shop/Shop";
 
 function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   const [selected, setSelected] = useState<number>(1);
@@ -15,12 +15,12 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   const selectedSatellite = SatelliteData.find(
     (satellite) => satellite.id === selected
   );
-  const { satelliteList } = useStorageContext();
+  const { token, satelliteList } = useStorageContext();
 
   return (
     <>
       <Header>
-        <DiceButton size={40} isDarkMode={isDarkMode} />
+        <Shop token={token} isDarkMode={isDarkMode} />
         <GithubButton size={40} isDarkMode={isDarkMode} />
       </Header>
       <Body>
