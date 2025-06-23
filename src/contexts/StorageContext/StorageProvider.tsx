@@ -1,30 +1,50 @@
-import { useEffect, useState } from "react";
-import { SatelliteData } from "../../data/SatelliteData";
 import { StorageContext } from "./useStorageContext";
+import { SatelliteData } from "../../data/SatelliteData";
 import type { Satellite } from "../../components/Inventory/InventoryTypes";
+import useInitStorage from "../../hooks/useInitStorage";
+import {
+  SATELLITE_ID_LIST_KEY,
+  SELECTED_SATELLITE_ID_KEY,
+  TOKEN_STORAGE_KEY,
+} from "../../constants/storage";
 
 export const StorageProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [token, setToken] = useState<number>(0);
-  const [satelliteIdList, setSatelliteIdList] = useState<number[]>([1]);
-  const [selectedSatelliteId, setSelectedSatelliteId] = useState<number>(1);
+  const {
+    token,
+    setToken,
+    satelliteIdList,
+    setSatelliteIdList,
+    selectedSatelliteId,
+    setSelectedSatelliteId,
+    setStorageValue,
+    isInitialized,
+  } = useInitStorage();
 
-  useEffect(() => {
-    setToken(2200);
-    setSatelliteIdList([1]);
-    setSelectedSatelliteId(1);
-  }, []);
+  const addToken = (value: number) => {
+    const newToken = token + value;
+    setToken(newToken);
+    setStorageValue(TOKEN_STORAGE_KEY, newToken);
+  };
 
-  const addToken = (value: number) => setToken((prev) => prev + value);
-
-  const spendToken = (value: number) =>
-    setToken((prev) => Math.max(0, prev - value));
+  const spendToken = (value: number) => {
+    const newToken = Math.max(0, token - value);
+    setToken(newToken);
+    setStorageValue(TOKEN_STORAGE_KEY, newToken);
+  };
 
   const addSatelliteIdList = (id: number) => {
-    setSatelliteIdList((prev) => [...prev, id]);
+    const newList = [...satelliteIdList, id];
+    setSatelliteIdList(newList);
+    setStorageValue(SATELLITE_ID_LIST_KEY, newList);
+  };
+
+  const handleSelectedSatelliteId = (id: number) => {
+    setSelectedSatelliteId(id);
+    setStorageValue(SELECTED_SATELLITE_ID_KEY, id);
   };
 
   return (
@@ -38,7 +58,8 @@ export const StorageProvider = ({
           .filter((s): s is Satellite => s !== undefined),
         addSatelliteIdList,
         selectedSatelliteId,
-        setSelectedSatelliteId,
+        handleSelectedSatelliteId,
+        isInitialized,
       }}
     >
       {children}
