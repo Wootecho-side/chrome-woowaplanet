@@ -17,13 +17,25 @@ export const StorageProvider = ({
     setSelectedSatelliteId(1);
   }, []);
 
+  const addToken = (value: number) => setToken((prev) => prev + value);
+
+  const removeToken = (value: number) =>
+    setToken((prev) => Math.max(0, prev - value));
+
+  const addSatelliteIdList = (id: number) => {
+    setSatelliteIdList((prev) => [...prev, id]);
+  };
+
   return (
     <StorageContext.Provider
       value={{
         token,
+        addToken,
+        removeToken,
         satelliteList: SatelliteData.filter(({ id }) =>
           satelliteIdList.includes(id)
         ),
+        addSatelliteIdList,
         selectedSatelliteId,
         setSelectedSatelliteId,
       }}
