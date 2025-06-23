@@ -1,52 +1,27 @@
-import { useEffect, useState } from "react";
-import { SatelliteData } from "../../data/SatelliteData";
 import { StorageContext } from "./useStorageContext";
+import { SatelliteData } from "../../data/SatelliteData";
 import type { Satellite } from "../../components/Inventory/InventoryTypes";
-import useStorage from "../../hooks/useStorage";
-import { INIT_VALUE } from "../../constants/config";
+import useInitStorage from "../../hooks/useInitStorage";
+import {
+  SATELLITE_ID_LIST_KEY,
+  SELECTED_SATELLITE_ID_KEY,
+  TOKEN_STORAGE_KEY,
+} from "../../constants/storage";
 
 export const StorageProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [token, setToken] = useState<number>(0);
-  const [satelliteIdList, setSatelliteIdList] = useState<number[]>([1]);
-  const [selectedSatelliteId, setSelectedSatelliteId] = useState<number>(1);
-
-  const { getStorageValue, setStorageValue, initStorageValue } = useStorage();
-  const TOKEN_STORAGE_KEY = "token";
-  const SATELLITE_ID_LIST_KEY = "inventory";
-  const SELECTED_SATELLITE_ID_KEY = "selected";
-
-  useEffect(() => {
-    initStorageValue<typeof token>(TOKEN_STORAGE_KEY, INIT_VALUE.TOKEN);
-    setToken(
-      getStorageValue<typeof token>(TOKEN_STORAGE_KEY) ?? INIT_VALUE.TOKEN
-    );
-  }, [getStorageValue, initStorageValue]);
-
-  useEffect(() => {
-    initStorageValue<typeof satelliteIdList>(
-      SATELLITE_ID_LIST_KEY,
-      INIT_VALUE.SATELLITE_ID_LIST
-    );
-    setSatelliteIdList(
-      getStorageValue<typeof satelliteIdList>(SATELLITE_ID_LIST_KEY) ??
-        INIT_VALUE.SATELLITE_ID_LIST
-    );
-  }, [getStorageValue, initStorageValue]);
-
-  useEffect(() => {
-    initStorageValue<typeof satelliteIdList>(
-      SELECTED_SATELLITE_ID_KEY,
-      INIT_VALUE.SELECTED_SATELLITE_ID
-    );
-    setSelectedSatelliteId(
-      getStorageValue<typeof selectedSatelliteId>(SELECTED_SATELLITE_ID_KEY) ??
-        INIT_VALUE.SELECTED_SATELLITE_ID
-    );
-  }, [getStorageValue, initStorageValue]);
+  const {
+    token,
+    setToken,
+    satelliteIdList,
+    setSatelliteIdList,
+    selectedSatelliteId,
+    setSelectedSatelliteId,
+    setStorageValue,
+  } = useInitStorage();
 
   const addToken = (value: number) => {
     const newToken = token + value;
@@ -61,9 +36,9 @@ export const StorageProvider = ({
   };
 
   const addSatelliteIdList = (id: number) => {
-    const newSatelliteIdList = [...satelliteIdList, id];
-    setSatelliteIdList(newSatelliteIdList);
-    setStorageValue(SATELLITE_ID_LIST_KEY, newSatelliteIdList);
+    const newList = [...satelliteIdList, id];
+    setSatelliteIdList(newList);
+    setStorageValue(SATELLITE_ID_LIST_KEY, newList);
   };
 
   const handleSelectedSatelliteId = (id: number) => {
