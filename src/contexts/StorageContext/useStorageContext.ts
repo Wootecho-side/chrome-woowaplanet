@@ -4,7 +4,7 @@ import type { Satellite } from "../../components/Inventory/InventoryTypes";
 interface StorageContext {
   token: number;
   addToken: (value: number) => void;
-  removeToken: (value: number) => void;
+  spendToken: (value: number) => void;
   satelliteList: Satellite[];
   addSatelliteIdList: (id: number) => void;
   selectedSatelliteId: number;

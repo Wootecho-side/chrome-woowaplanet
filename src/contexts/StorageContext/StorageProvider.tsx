@@ -20,7 +20,7 @@ export const StorageProvider = ({
 
   const addToken = (value: number) => setToken((prev) => prev + value);
 
-  const removeToken = (value: number) =>
+  const spendToken = (value: number) =>
     setToken((prev) => Math.max(0, prev - value));
 
   const addSatelliteIdList = (id: number) => {
@@ -32,7 +32,7 @@ export const StorageProvider = ({
       value={{
         token,
         addToken,
-        removeToken,
+        spendToken,
         satelliteList: satelliteIdList
           .map((id) => SatelliteData.find((s) => s.id === id))
           .filter((s): s is Satellite => s !== undefined),

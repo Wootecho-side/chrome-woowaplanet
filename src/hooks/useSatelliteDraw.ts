@@ -4,7 +4,7 @@ import { SatelliteData } from "../data/SatelliteData";
 import getNewSatellite from "../utils/getNewSatellite";
 
 const useSatelliteDraw = () => {
-  const { token, removeToken, satelliteList, addSatelliteIdList } =
+  const { token, spendToken, satelliteList, addSatelliteIdList } =
     useStorageContext();
 
   const satelliteIdSet = new Set(satelliteList.map(({ id }) => id));
@@ -12,7 +12,7 @@ const useSatelliteDraw = () => {
   const canDraw = token >= DRAW_PRICE;
 
   const handleDrawButton = () => {
-    removeToken(DRAW_PRICE);
+    spendToken(DRAW_PRICE);
     console.log("hello");
 
     let newSatellite;
