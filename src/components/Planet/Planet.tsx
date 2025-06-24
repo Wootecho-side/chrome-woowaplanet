@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import useShakeAnimation from "../../hooks/useShakeAnimation";
 import { planetColorThemes } from "../../styles/planetColorThemes";
 import DownRing from "../DownRing/DownRing";
@@ -20,7 +20,7 @@ export default function Planet({
     eyeColor: "#000",
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getRandomColor = () => {
       return planetColorThemes[
         Math.floor(Math.random() * planetColorThemes.length)
