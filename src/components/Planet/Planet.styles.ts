@@ -36,7 +36,7 @@ export const UpLayer = styled.div`
 
 export const DownLayer = styled.div`
   position: absolute;
-  top: 45%;
+  top: 46%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 13;
