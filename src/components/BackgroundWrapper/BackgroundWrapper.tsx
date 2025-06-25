@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import * as S from "./BackgroundWrapper.styles";
+import { BACKGROUND_COLOR } from "../../constants/config";
 
 export default function BackgroundWrapper({
   children,
@@ -10,9 +11,7 @@ export default function BackgroundWrapper({
 }) {
   const [background, setBackground] = useState<string>("ffffff");
 
-  const colorList = isDarkMode
-    ? ["#001427", "#000B14", "#0B1D3A", "#1A2B4C", "#14213D"]
-    : ["#A9B5DF", "#D6E5FA", "#BFD7ED", "#E3F2FD", "#D0E8FF"];
+  const colorList = isDarkMode ? BACKGROUND_COLOR.DARK : BACKGROUND_COLOR.LIGHT;
   useLayoutEffect(() => {
     const random = colorList[Math.floor(Math.random() * colorList.length)];
     setBackground(random);
