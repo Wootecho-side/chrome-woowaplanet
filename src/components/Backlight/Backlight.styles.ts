@@ -7,6 +7,10 @@ export const Container = styled.div<{
 }>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
-  background-color: ${({ color = "#fff" }) => color};
+  background-image: radial-gradient(
+    circle,
+    ${({ color = "#fff" }) => color} 5%,
+    transparent 70%
+  );
   z-index: ${({ zIndex = 0 }) => zIndex};
 `;
