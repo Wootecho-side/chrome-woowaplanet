@@ -52,6 +52,7 @@ export default function Planet({
             top: "45%",
             left: "48%",
             transform: "translate(-50%, -50%)",
+            opacity: 0.6,
           }}
         />
       </S.PlanetCore>

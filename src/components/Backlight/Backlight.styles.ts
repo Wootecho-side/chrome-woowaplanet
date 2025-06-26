@@ -10,7 +10,7 @@ export const Container = styled.div<{
   height: ${({ size }) => `${size}px`};
   background-image: radial-gradient(
     circle,
-    ${({ color = "#fff" }) => color} 5%,
+    ${({ color = "#fff" }) => color} 10%,
     transparent 70%
   );
   z-index: ${({ zIndex = 0 }) => zIndex};
