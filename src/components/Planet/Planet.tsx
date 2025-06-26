@@ -5,6 +5,7 @@ import DownRing from "../DownRing/DownRing";
 import PlanetBody from "../PlanetBody/PlanetBody";
 import UpRing from "../UpRing/UpRing";
 import * as S from "./Planet.styles";
+import Backlight from "../Backlight/Backlight";
 
 export default function Planet({
   isDarkMode = false,
@@ -45,6 +46,14 @@ export default function Planet({
         <S.DownLayer>
           <DownRing color={colors.ringColor} isDarkMode={isDarkMode} />
         </S.DownLayer>
+        <Backlight
+          size={180}
+          style={{
+            top: "45%",
+            left: "48%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
       </S.PlanetCore>
     </S.Wrapper>
   );

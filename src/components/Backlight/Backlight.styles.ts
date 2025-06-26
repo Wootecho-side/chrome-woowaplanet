@@ -5,6 +5,7 @@ export const Container = styled.div<{
   color?: string;
   zIndex?: number;
 }>`
+  position: absolute;
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   background-image: radial-gradient(

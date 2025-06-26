@@ -15,5 +15,6 @@ export const Default: Story = {
     size: 50,
     color: "#fff",
     zIndex: 0,
+    style: undefined,
   },
 };
