@@ -1,4 +1,4 @@
-export type Rank = "normal" | "rare";
+export type Rank = "normal" | "rare" | "special";
 
 export interface Satellite {
   id: number;
