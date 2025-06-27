@@ -31,8 +31,8 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   return (
     <>
       <Header>
-        <Shop token={token} isDarkMode={isDarkMode} />
         <Bookmark bookmarkList={BookmarkList} isDarkMode={isDarkMode} />
+        <Shop token={token} isDarkMode={isDarkMode} />
       </Header>
       <Body>
         <Title isDarkMode={isDarkMode}>{colors.name} 행성이</Title>
