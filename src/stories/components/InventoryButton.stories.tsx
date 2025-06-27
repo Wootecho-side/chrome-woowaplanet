@@ -13,5 +13,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: 50,
+    name: "inventory",
+    isDarkMode: false,
+    isClicked: false,
   },
 };
