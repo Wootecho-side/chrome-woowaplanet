@@ -3,6 +3,12 @@
    License: none (public domain)
 */
 
+@font-face {
+  font-family: "BMJUA";
+  font-weight: normal;
+  src: url("./fonts/BMJUA_ttf.ttf") format("truetype");
+}
+
 html,
 body,
 div,
@@ -107,6 +113,8 @@ section {
 }
 body {
   line-height: 1;
+  user-select: none;
+  font-family: "BMJUA";
 }
 ol,
 ul {
