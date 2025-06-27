@@ -1,6 +1,4 @@
-import { useLayoutEffect, useState } from "react";
 import useShakeAnimation from "../../hooks/useShakeAnimation";
-import { planetColorThemes } from "../../styles/planetColorThemes";
 import DownRing from "../DownRing/DownRing";
 import PlanetBody from "../PlanetBody/PlanetBody";
 import UpRing from "../UpRing/UpRing";
@@ -8,29 +6,16 @@ import * as S from "./Planet.styles";
 import Backlight from "../Backlight/Backlight";
 import EyeMoving from "../EyeMoving/EyeMoving";
 import PlanetEyes from "../PlanetEyes/PlanetEyes";
+import type { PlanetColors } from "./PlanetTypes";
 
 export default function Planet({
   isDarkMode = false,
+  colors,
 }: {
   isDarkMode?: boolean;
+  colors: PlanetColors;
 }) {
   const { shakeControls, setNextRandomShakeAnimation } = useShakeAnimation();
-
-  const [colors, setColors] = useState({
-    name: "기본",
-    bodyColor: "#ccc",
-    ringColor: "#888",
-    eyeColor: "#000",
-  });
-
-  useLayoutEffect(() => {
-    const getRandomColor = () => {
-      return planetColorThemes[
-        Math.floor(Math.random() * planetColorThemes.length)
-      ];
-    };
-    setColors(getRandomColor());
-  }, []);
 
   return (
     <S.Wrapper>
