@@ -1,4 +1,3 @@
-import { Z_INDEX } from "../../constants/zIndex";
 import * as S from "./Backlight.styles";
 
 interface BacklightProps {
@@ -11,7 +10,7 @@ interface BacklightProps {
 const Backlight = ({
   size,
   color = "#fff",
-  zIndex = Z_INDEX.BACKLIGHT,
+  zIndex = 0,
   style,
 }: BacklightProps) => {
   return (
