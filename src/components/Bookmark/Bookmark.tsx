@@ -20,12 +20,18 @@ export default function Bookmark({
 
   return (
     <S.BookmarkWrapper>
+      <BookmarkButton
+        size={40}
+        isClicked={showItems}
+        onClick={toggleBookmark}
+        isDarkMode={isDarkMode}
+      />
       <AnimatePresence>
         {showItems && (
           <S.ItemsWrapper
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
+            exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
@@ -34,6 +40,7 @@ export default function Bookmark({
                 name={bookmark.name}
                 key={bookmark.name}
                 isDarkMode={isDarkMode}
+                whileHover={{ opacity: 0.8 }}
                 onClick={() => {
                   window.location.href = bookmark.url;
                 }}
@@ -42,12 +49,6 @@ export default function Bookmark({
           </S.ItemsWrapper>
         )}
       </AnimatePresence>
-      <BookmarkButton
-        size={40}
-        isClicked={showItems}
-        onClick={toggleBookmark}
-        isDarkMode={isDarkMode}
-      />
     </S.BookmarkWrapper>
   );
 }
