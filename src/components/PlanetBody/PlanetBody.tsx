@@ -1,54 +1,19 @@
 import * as S from "./PlanetBody.styles";
-import PlanetEyes from "../PlanetEyes/PlanetEyes";
-import { useRef, useState } from "react";
+
+interface PlanetBodyProps {
+  bodyColor?: string;
+  eyeColor?: string;
+  isDarkMode?: boolean;
+}
 
 export default function PlanetBody({
   bodyColor = "#fff1b7",
   eyeColor = "#000",
   isDarkMode = false,
-}: {
-  bodyColor?: string;
-  eyeColor?: string;
-  isDarkMode?: boolean;
-}) {
-  const [mousePosition, setMousePosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  const bodyCenter = { x: 150, y: 150 };
-  const bodyRadius = 100;
-
-  const handleMouseMove = (e: React.MouseEvent<SVGSVGElement>) => {
-    if (!svgRef.current) return;
-
-    const svgPoint = svgRef.current.createSVGPoint();
-    svgPoint.x = e.clientX;
-    svgPoint.y = e.clientY;
-
-    const transformedPoint = svgPoint.matrixTransform(
-      svgRef.current.getScreenCTM()?.inverse()
-    );
-    const dx = transformedPoint.x - bodyCenter.x;
-    const dy = transformedPoint.y - bodyCenter.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    setMousePosition(
-      distance <= bodyRadius
-        ? null
-        : { x: transformedPoint.x, y: transformedPoint.y }
-    );
-  };
+}: PlanetBodyProps) {
   return (
     <S.PlanetBodyWrapper>
-      <svg
-        viewBox="0 0 300 300"
-        width="200"
-        height="200"
-        ref={svgRef}
-        onMouseMove={handleMouseMove}
-      >
+      <svg viewBox="0 0 300 300" width="200" height="200">
         <defs>
           <filter
             id="hand-drawn-outline"
@@ -83,12 +48,7 @@ export default function PlanetBody({
           strokeWidth="4"
           filter="url(#hand-drawn-outline)"
         />
-        <PlanetEyes
-          mousePosition={mousePosition}
-          center={{ x: 150, y: 150 }}
-          eyeColor={eyeColor}
-        />
-        <circle cx="150" cy="160" r="4" fill={eyeColor} />
+        <circle cx="150" cy="170" r="4" fill={eyeColor} />
       </svg>
     </S.PlanetBodyWrapper>
   );

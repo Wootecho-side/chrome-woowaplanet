@@ -6,6 +6,8 @@ import PlanetBody from "../PlanetBody/PlanetBody";
 import UpRing from "../UpRing/UpRing";
 import * as S from "./Planet.styles";
 import Backlight from "../Backlight/Backlight";
+import EyeMoving from "../EyeMoving/EyeMoving";
+import PlanetEyes from "../PlanetEyes/PlanetEyes";
 
 export default function Planet({
   isDarkMode = false,
@@ -32,11 +34,19 @@ export default function Planet({
 
   return (
     <S.Wrapper>
-      <S.PlanetCore animate={shakeControls} onTap={setNextRandomShakeAnimation}>
+      <S.PlanetCore animate={shakeControls}>
+        <S.EyeLayer>
+          <EyeMoving size={500} innerSafeSize={200} showRecognitionZone={true}>
+            <PlanetEyes
+              center={{ x: 150, y: 150 }}
+              eyeColor={colors.eyeColor}
+            />
+          </EyeMoving>
+        </S.EyeLayer>
         <S.UpLayer>
           <UpRing color={colors.ringColor} isDarkMode={isDarkMode} />
         </S.UpLayer>
-        <S.BodyLayer>
+        <S.BodyLayer onTap={setNextRandomShakeAnimation}>
           <PlanetBody
             bodyColor={colors.bodyColor}
             eyeColor={colors.eyeColor}

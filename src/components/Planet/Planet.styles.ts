@@ -10,6 +10,14 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
+export const EyeLayer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 13;
+`;
+
 export const PlanetCore = styled(motion.div)`
   position: relative;
   width: 120px;

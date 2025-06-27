@@ -41,7 +41,7 @@ const EyeMoving = ({
             x: offset.x,
             y: offset.y,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 50 }}
         >
           {children}
         </S.AnimationContent>

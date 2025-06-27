@@ -1,16 +1,10 @@
-import { motion } from "framer-motion";
-
 export default function PlanetEyes({
-  mousePosition,
   center,
   eyeColor,
 }: {
-  mousePosition: { x: number; y: number } | null;
   center: { x: number; y: number };
   eyeColor: string;
 }) {
-  const radius = 10;
-
   const eyeOffsetX = 20;
   const eyeOffsetY = -10;
 
@@ -23,49 +17,12 @@ export default function PlanetEyes({
     y: center.y + eyeOffsetY,
   };
 
-  const calcOffset = ({
-    eyeCenter,
-  }: {
-    eyeCenter: { x: number; y: number };
-  }) => {
-    if (!mousePosition) return { x: 0, y: 0 };
-
-    const dx = mousePosition.x - eyeCenter.x;
-    const dy = mousePosition.y - eyeCenter.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < 1) return { x: 0, y: 0 };
-
-    const scale = Math.min(radius / distance, 1);
-    return {
-      x: dx * scale,
-      y: dy * scale,
-    };
-  };
-
-  const leftOffset = calcOffset({ eyeCenter: centerLeft });
-  const rightOffset = calcOffset({ eyeCenter: centerRight });
-
   return (
-    <g>
-      <motion.circle
-        animate={{
-          cx: centerLeft.x + leftOffset.x,
-          cy: centerLeft.y + leftOffset.y,
-        }}
-        r="4"
-        fill={eyeColor}
-        transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
-      />
-      <motion.circle
-        animate={{
-          cx: centerRight.x + rightOffset.x,
-          cy: centerRight.y + rightOffset.y,
-        }}
-        r="4"
-        fill={eyeColor}
-        transition={{ type: "spring", stiffness: 100, damping: 10 } as const}
-      />
-    </g>
+    <svg viewBox="0 0 300 300" width="200" height="200">
+      <g>
+        <circle cx={centerLeft.x} cy={centerLeft.y} r="4" fill={eyeColor} />
+        <circle cx={centerRight.x} cy={centerRight.y} r="4" fill={eyeColor} />
+      </g>
+    </svg>
   );
 }
