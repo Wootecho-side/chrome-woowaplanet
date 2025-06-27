@@ -68,7 +68,6 @@ const Header = styled.header`
   align-items: center;
   padding: 0 16px;
   width: 100%;
-  z-index: 10;
   box-sizing: border-box;
   flex: 1;
 `;
@@ -88,7 +87,6 @@ const Title = styled.h1<{ isDarkMode: boolean }>`
   color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
   font-size: 24px;
   font-weight: medium;
-  z-index: 10;
 `;
 
 const Footer = styled.footer`
@@ -96,7 +94,6 @@ const Footer = styled.footer`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  z-index: 10;
   flex: 1;
   padding: 0 16px;
   box-sizing: border-box;
