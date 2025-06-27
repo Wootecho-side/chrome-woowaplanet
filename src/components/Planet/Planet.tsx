@@ -36,7 +36,12 @@ export default function Planet({
     <S.Wrapper>
       <S.PlanetCore animate={shakeControls}>
         <S.EyeLayer>
-          <EyeMoving size={500} innerSafeSize={200} showRecognitionZone={true}>
+          <EyeMoving
+            size={500}
+            innerSafeSize={200}
+            maxMovingValue={5}
+            showRecognitionZone={true}
+          >
             <PlanetEyes
               center={{ x: 150, y: 150 }}
               eyeColor={colors.eyeColor}

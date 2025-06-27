@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMotionValue, useSpring } from "framer-motion";
 
 const useEyeMoving = (
   outerRef: React.RefObject<HTMLDivElement | null>,
@@ -6,7 +6,11 @@ const useEyeMoving = (
   innerSafeSize: number,
   maxMovingValue: number
 ) => {
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  const springX = useSpring(rawX, { stiffness: 300, damping: 30 });
+  const springY = useSpring(rawY, { stiffness: 300, damping: 30 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!outerRef.current) return;
@@ -25,19 +29,26 @@ const useEyeMoving = (
     const safeRadius = innerSafeSize / 2;
 
     if (distanceFromCenter <= safeRadius) {
-      setOffset({ x: 0, y: 0 });
+      rawX.set(0);
+      rawY.set(0);
       return;
     }
 
     const ratio = Math.min(1, maxMovingValue / distanceFromCenter);
-    setOffset({ x: dx * ratio, y: dy * ratio });
+    rawX.set(dx * ratio);
+    rawY.set(dy * ratio);
   };
 
   const handleMouseLeave = () => {
-    setOffset({ x: 0, y: 0 });
+    rawX.set(0);
+    rawY.set(0);
   };
 
-  return { offset, handleMouseMove, handleMouseLeave };
+  return {
+    offset: { x: springX, y: springY },
+    handleMouseMove,
+    handleMouseLeave,
+  };
 };
 
 export default useEyeMoving;

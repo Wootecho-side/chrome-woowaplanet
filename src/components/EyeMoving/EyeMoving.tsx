@@ -36,13 +36,7 @@ const EyeMoving = ({
     >
       <S.MovingContainer>
         {showRecognitionZone && <S.InnerRecognitionZone size={innerSafeSize} />}
-        <S.AnimationContent
-          animate={{
-            x: offset.x,
-            y: offset.y,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 50 }}
-        >
+        <S.AnimationContent style={{ x: offset.x, y: offset.y }}>
           {children}
         </S.AnimationContent>
       </S.MovingContainer>
