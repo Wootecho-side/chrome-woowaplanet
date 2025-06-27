@@ -14,5 +14,6 @@ export const Default: Story = {
   args: {
     size: 50,
     isDarkMode: false,
+    isClicked: false,
   },
 };
