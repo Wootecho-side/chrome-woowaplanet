@@ -9,8 +9,8 @@ interface ShopProps {
 export default function Shop({ token, isDarkMode = false }: ShopProps) {
   return (
     <S.ShopWrapper>
-      <DiceButton size={40} isDarkMode={isDarkMode} />
       <S.Token isDarkMode={isDarkMode}>{token}</S.Token>
+      <DiceButton size={40} isDarkMode={isDarkMode} />
     </S.ShopWrapper>
   );
 }
