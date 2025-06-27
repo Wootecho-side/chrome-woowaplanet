@@ -10,6 +10,7 @@ import Shop from "../components/Shop/Shop";
 import useRefreshAddToken from "../hooks/useRefreshAddToken";
 import { BookmarkList } from "../data/BookmarkList";
 import Bookmark from "../components/Bookmark/Bookmark";
+import usePlanetColors from "../hooks/usePlanetColors";
 
 function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   const {
@@ -25,6 +26,8 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
     (satellite) => satellite.id === selectedSatelliteId
   );
 
+  const { colors } = usePlanetColors();
+
   return (
     <>
       <Header>
@@ -32,6 +35,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
         <Bookmark bookmarkList={BookmarkList} isDarkMode={isDarkMode} />
       </Header>
       <Body>
+        <Title isDarkMode={isDarkMode}>{colors.name} 행성이</Title>
         {selectedSatellite && (
           <OrbitalMoving
             center={{ x: 50, y: 0, zIndex: 13 }}
@@ -43,7 +47,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
             <Satellite name={selectedSatellite.name} size={50} />
           </OrbitalMoving>
         )}
-        <Planet isDarkMode={isDarkMode} />
+        <Planet isDarkMode={isDarkMode} colors={colors} />
       </Body>
       <Footer>
         <Inventory
@@ -74,6 +78,17 @@ const Body = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+`;
+
+const Title = styled.h1<{ isDarkMode: boolean }>`
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
+  font-size: 24px;
+  font-weight: medium;
+  z-index: 10;
 `;
 
 const Footer = styled.footer`
