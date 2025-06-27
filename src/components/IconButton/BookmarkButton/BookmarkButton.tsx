@@ -20,7 +20,7 @@ const BookmarkButton = ({
           rotate: ["0deg", "-15deg", "0deg"],
           transition: { duration: 0.2 },
         }}
-        animate={{ opacity: isClicked ? 0.2 : 0.9 }}
+        animate={{ opacity: isClicked ? 0.2 : 0.5 }}
       />
     </S.Container>
   );
