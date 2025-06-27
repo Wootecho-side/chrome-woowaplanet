@@ -30,6 +30,10 @@ export const ClickableOverlay = styled(motion.div)`
   /* 디버깅용
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.1); */
+
+  :focus-visible {
+    outline: none;
+  }
 `;
 
 export const EyeLayer = styled.div`
