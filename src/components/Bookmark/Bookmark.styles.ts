@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 export const BookmarkWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const ItemsWrapper = styled(motion.div)`
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  flex-direction: row-reverse;
+  align-items: center;
   overflow-x: auto;
   max-width: 100%;
 `;

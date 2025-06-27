@@ -20,24 +20,17 @@ export default function Bookmark({
 
   return (
     <S.BookmarkWrapper>
-      <BookmarkButton
-        size={50}
-        isClicked={showItems}
-        onClick={toggleBookmark}
-        isDarkMode={isDarkMode}
-      />
-
       <AnimatePresence>
         {showItems && (
           <S.ItemsWrapper
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
               <IconButton
-                size={50}
+                size={40}
                 name={bookmark.name}
                 key={bookmark.name}
                 isDarkMode={isDarkMode}
@@ -49,6 +42,12 @@ export default function Bookmark({
           </S.ItemsWrapper>
         )}
       </AnimatePresence>
+      <BookmarkButton
+        size={40}
+        isClicked={showItems}
+        onClick={toggleBookmark}
+        isDarkMode={isDarkMode}
+      />
     </S.BookmarkWrapper>
   );
 }
