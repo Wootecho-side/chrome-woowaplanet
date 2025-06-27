@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import InventoryButton from "../../components/IconButton/InventoryButton/InventoryButton";
+import BookmarkButton from "../../components/IconButton/BookmarkButton/BookmarkButton";
 
 const meta = {
-  title: "Components/Button/Inventory",
-  component: InventoryButton,
-} satisfies Meta<typeof InventoryButton>;
+  title: "Components/Button/Bookmark",
+  component: BookmarkButton,
+} satisfies Meta<typeof BookmarkButton>;
 
 export default meta;
 
@@ -13,7 +13,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: 50,
-    name: "inventory",
     isDarkMode: false,
     isClicked: false,
   },

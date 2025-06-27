@@ -8,6 +8,8 @@ import styled from "@emotion/styled";
 import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
 import Shop from "../components/Shop/Shop";
 import useRefreshAddToken from "../hooks/useRefreshAddToken";
+import { BookmarkList } from "../data/BookmarkList";
+import Bookmark from "../components/Bookmark/Bookmark";
 
 function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   const {
@@ -27,7 +29,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
     <>
       <Header>
         <Shop token={token} isDarkMode={isDarkMode} />
-        <GithubButton size={40} isDarkMode={isDarkMode} />
+        <Bookmark bookmarkList={BookmarkList} isDarkMode={isDarkMode} />
       </Header>
       <Body>
         {selectedSatellite && (
@@ -50,6 +52,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
           setSelected={handleSelectedSatelliteId}
           isDarkMode={isDarkMode}
         />
+        <GithubButton size={40} isDarkMode={isDarkMode} />
       </Footer>
     </>
   );
@@ -75,10 +78,13 @@ const Body = styled.div`
 
 const Footer = styled.footer`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   z-index: 10;
   flex: 1;
   padding: 0 16px;
+  box-sizing: border-box;
 `;
 
 export default MainPage;

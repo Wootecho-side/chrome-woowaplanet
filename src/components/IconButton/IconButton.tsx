@@ -1,7 +1,14 @@
 import * as S from "./IconButton.styles";
 import type { IconButtonProps } from "./ButtonTypes";
+import type { MotionProps } from "motion/react";
 
-const IconButton = ({ size, name, isDarkMode, ...rest }: IconButtonProps) => {
+const IconButton = ({
+  size,
+  name,
+  isDarkMode,
+  animate,
+  ...rest
+}: IconButtonProps & { animate?: MotionProps["animate"] }) => {
   const iconName = isDarkMode ? `${name}-darkMode` : name;
 
   return (
@@ -11,7 +18,7 @@ const IconButton = ({ size, name, isDarkMode, ...rest }: IconButtonProps) => {
       size={size}
       name={iconName}
       whileHover={rest.disabled ? undefined : rest.whileHover}
-      animate={{ opacity: rest.disabled ? 0.2 : 0.5 }}
+      animate={animate ?? { opacity: rest.disabled ? 0.2 : 0.5 }}
     />
   );
 };
