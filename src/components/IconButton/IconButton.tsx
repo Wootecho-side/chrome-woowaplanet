@@ -7,9 +7,11 @@ const IconButton = ({ size, name, isDarkMode, ...rest }: IconButtonProps) => {
   return (
     <S.Button
       {...rest}
+      disabled={rest.disabled}
       size={size}
       name={iconName}
       whileHover={rest.disabled ? undefined : rest.whileHover}
+      animate={{ opacity: rest.disabled ? 0.2 : 0.5 }}
     />
   );
 };
