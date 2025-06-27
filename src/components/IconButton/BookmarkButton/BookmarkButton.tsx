@@ -13,9 +13,14 @@ const BookmarkButton = ({
       <IconButton
         size={size}
         name="bookmark"
-        whileHover={{ opacity: 0.8 }}
         onClick={onClick}
         isDarkMode={isDarkMode}
+        whileHover={{ opacity: 0.8, rotate: "5deg" }}
+        whileTap={{
+          rotate: ["0deg", "-15deg", "0deg"],
+          transition: { duration: 0.2 },
+        }}
+        animate={{ opacity: isClicked ? 0.2 : 0.9 }}
       />
     </S.Container>
   );
