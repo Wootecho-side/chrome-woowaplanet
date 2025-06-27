@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { motion } from "motion/react";
+import { Z_INDEX } from "../../constants/zIndex";
 
 export const Wrapper = styled.div`
   width: 600px;
@@ -15,7 +16,7 @@ export const PlanetCore = styled(motion.div)`
   width: 120px;
   height: 120px;
   transform-origin: center;
-  z-index: 10;
+  z-index: ${Z_INDEX.PLANETCORE};
 `;
 
 export const ClickableOverlay = styled(motion.div)`
@@ -26,7 +27,7 @@ export const ClickableOverlay = styled(motion.div)`
   width: 125%;
   height: 125%;
   border-radius: 50%;
-  z-index: 14;
+  z-index: ${Z_INDEX.CLICKABLE_OVERLAY};
   /* 디버깅용
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.1); */
@@ -41,7 +42,7 @@ export const EyeLayer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 13;
+  z-index: ${Z_INDEX.EYELAYER};
 `;
 
 export const BodyLayer = styled(motion.div)`
@@ -49,7 +50,7 @@ export const BodyLayer = styled(motion.div)`
   top: 45%;
   left: 48%;
   transform: translate(-50%, -50%);
-  z-index: 12;
+  z-index: ${Z_INDEX.BODY_LAYER};
 `;
 
 export const UpLayer = styled.div`
@@ -57,7 +58,7 @@ export const UpLayer = styled.div`
   top: 25%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 11;
+  z-index: ${Z_INDEX.UP_LAYER};
 `;
 
 export const DownLayer = styled.div`
@@ -65,5 +66,5 @@ export const DownLayer = styled.div`
   top: 46%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 13;
+  z-index: ${Z_INDEX.DOWN_LAYER};
 `;
