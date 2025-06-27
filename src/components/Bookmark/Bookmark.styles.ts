@@ -10,7 +10,6 @@ export const BookmarkWrapper = styled.div`
 export const ItemsWrapper = styled(motion.div)`
   display: flex;
   gap: 20px;
-  flex-direction: row-reverse;
   align-items: center;
   overflow-x: auto;
   max-width: 100%;
