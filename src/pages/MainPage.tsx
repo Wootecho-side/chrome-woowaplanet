@@ -38,13 +38,13 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
         <Title isDarkMode={isDarkMode}>{colors.name} 행성이</Title>
         {selectedSatellite && (
           <OrbitalMoving
-            center={{ x: 50, y: 0, zIndex: 13 }}
-            radius={{ x: 150, y: 40 }}
+            center={{ x: 0, y: 0, zIndex: 13 }}
+            radius={{ x: 200, y: 80 }}
             speed={100}
             initialAngle={0}
             initialOrbitRotationAngle={-30}
           >
-            <Satellite name={selectedSatellite.name} size={50} />
+            <Satellite name={selectedSatellite.name} size={80} />
           </OrbitalMoving>
         )}
         <Planet isDarkMode={isDarkMode} colors={colors} />
@@ -63,40 +63,44 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
 }
 
 const Header = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 16px;
   width: 100%;
-  box-sizing: border-box;
-  flex: 1;
+  z-index: 1;
 `;
 
 const Body = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  z-index: 0;
 `;
 
 const Title = styled.h1<{ isDarkMode: boolean }>`
   position: absolute;
-  top: 150px;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
-  font-size: 24px;
+  font-size: 32px;
   font-weight: medium;
 `;
 
 const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex: 1;
-  padding: 0 16px;
-  box-sizing: border-box;
+  padding: 16px;
+  z-index: 1;
 `;
 
 export default MainPage;

@@ -13,7 +13,7 @@ export default function PlanetBody({
 }: PlanetBodyProps) {
   return (
     <S.PlanetBodyWrapper>
-      <svg viewBox="0 0 300 300" width="200" height="200">
+      <svg viewBox="0 0 300 300" width="300" height="300">
         <defs>
           <filter
             id="hand-drawn-outline"
@@ -33,7 +33,7 @@ export default function PlanetBody({
             <feDisplacementMap
               in="SourceGraphic"
               in2="noise"
-              scale="6"
+              scale="4"
               xChannelSelector="R"
               yChannelSelector="G"
             />
@@ -42,13 +42,13 @@ export default function PlanetBody({
         <circle
           cx="150"
           cy="150"
-          r="100"
+          r="120"
           fill={bodyColor}
           stroke={isDarkMode ? "#ffffff" : "#000000"}
-          strokeWidth="4"
+          strokeWidth="5"
           filter="url(#hand-drawn-outline)"
         />
-        <circle cx="150" cy="170" r="4" fill={eyeColor} />
+        <circle cx="150" cy="170" r="5" fill={eyeColor} />
       </svg>
     </S.PlanetBodyWrapper>
   );

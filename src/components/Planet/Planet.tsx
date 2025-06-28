@@ -23,9 +23,9 @@ export default function Planet({
       <S.PlanetCore animate={shakeControls}>
         <S.ClickableOverlay onTap={setNextRandomShakeAnimation} />
         <S.EyeLayer>
-          <EyeMoving size={500} innerSafeSize={150} maxMovingValue={5}>
+          <EyeMoving size={700} maxMovingValue={10}>
             <PlanetEyes
-              center={{ x: 150, y: 150 }}
+              center={{ x: 140, y: 130 }}
               eyeColor={colors.eyeColor}
             />
           </EyeMoving>
@@ -44,10 +44,10 @@ export default function Planet({
           <DownRing color={colors.ringColor} isDarkMode={isDarkMode} />
         </S.DownLayer>
         <Backlight
-          size={180}
+          size={300}
           style={{
-            top: "45%",
-            left: "48%",
+            top: "50%",
+            left: "50%",
             transform: "translate(-50%, -50%)",
             opacity: 0.6,
           }}
