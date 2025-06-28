@@ -1,4 +1,5 @@
 export const Z_INDEX = {
+  BACKLIGHT: 0,
   PLANETCORE: 10,
   SATELLITE: 11,
   DOWN_LAYER: 13,

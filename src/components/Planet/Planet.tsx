@@ -7,6 +7,7 @@ import Backlight from "../Backlight/Backlight";
 import EyeMoving from "../EyeMoving/EyeMoving";
 import PlanetEyes from "../PlanetEyes/PlanetEyes";
 import type { PlanetColors } from "./PlanetTypes";
+import { Z_INDEX } from "../../constants/zIndex";
 
 export default function Planet({
   isDarkMode = false,
@@ -50,6 +51,7 @@ export default function Planet({
             transform: "translate(-50%, -50%)",
             opacity: 0.6,
           }}
+          zIndex={Z_INDEX.BACKLIGHT}
         />
       </S.PlanetCore>
     </S.Wrapper>
