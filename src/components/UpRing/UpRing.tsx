@@ -10,8 +10,8 @@ export default function UpRing({
   return (
     <S.StyledRing
       xmlns="http://www.w3.org/2000/svg"
-      width="200"
-      height="50"
+      width="370"
+      height="120"
       viewBox="-30 0 713 137"
       fill="none"
       ringColor={color}

@@ -3,8 +3,10 @@ import { motion } from "motion/react";
 import { Z_INDEX } from "../../constants/zIndex";
 
 export const Wrapper = styled.div`
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
+  min-width: 800px;
+  min-height: 800px;
   position: relative;
   display: flex;
   align-items: center;
@@ -13,8 +15,8 @@ export const Wrapper = styled.div`
 
 export const PlanetCore = styled(motion.div)`
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
   transform-origin: center;
   z-index: ${Z_INDEX.PLANETCORE};
 `;
@@ -63,7 +65,7 @@ export const UpLayer = styled.div`
 
 export const DownLayer = styled.div`
   position: absolute;
-  top: 46%;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
   z-index: ${Z_INDEX.DOWN_LAYER};
