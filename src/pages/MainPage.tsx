@@ -63,25 +63,27 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
 }
 
 const Header = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 16px;
   width: 100%;
-  box-sizing: border-box;
-  flex: 1;
+  z-index: 1;
 `;
 
 const Body = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  z-index: 0;
 `;
 
 const Title = styled.h1<{ isDarkMode: boolean }>`
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 50%;
   transform: translateX(-50%);
   color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
@@ -90,13 +92,15 @@ const Title = styled.h1<{ isDarkMode: boolean }>`
 `;
 
 const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex: 1;
-  padding: 0 16px;
-  box-sizing: border-box;
+  padding: 16px;
+  z-index: 1;
 `;
 
 export default MainPage;
