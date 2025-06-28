@@ -3,7 +3,7 @@ import { useStorageContext } from "../contexts/StorageContext/useStorageContext"
 import { SatelliteData } from "../data/SatelliteData";
 import getNewSatellite from "../utils/getNewSatellite";
 
-const SPECIAL_SATELLITE_ID = 15;
+const SPECIAL_SATELLITE_ID = 0;
 
 const useSatelliteDraw = () => {
   const { token, spendToken, satelliteList, addSatelliteIdList } =
