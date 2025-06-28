@@ -38,7 +38,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
         <Title isDarkMode={isDarkMode}>{colors.name} 행성이</Title>
         {selectedSatellite && (
           <OrbitalMoving
-            center={{ x: 50, y: 0, zIndex: 13 }}
+            center={{ x: 0, y: 0, zIndex: 13 }}
             radius={{ x: 200, y: 80 }}
             speed={100}
             initialAngle={0}
@@ -83,7 +83,7 @@ const Body = styled.div`
 
 const Title = styled.h1<{ isDarkMode: boolean }>`
   position: absolute;
-  top: 150px;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
