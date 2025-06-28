@@ -1,0 +1,10 @@
+export const Z_INDEX = {
+  BACKLIGHT: 0,
+  PLANETCORE: 10,
+  SATELLITE: 11,
+  DOWN_LAYER: 13,
+  UP_LAYER: 11,
+  BODY_LAYER: 12,
+  EYELAYER: 13,
+  CLICKABLE_OVERLAY: 14,
+} as const;
