@@ -39,12 +39,12 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
         {selectedSatellite && (
           <OrbitalMoving
             center={{ x: 50, y: 0, zIndex: 13 }}
-            radius={{ x: 150, y: 40 }}
+            radius={{ x: 200, y: 80 }}
             speed={100}
             initialAngle={0}
             initialOrbitRotationAngle={-30}
           >
-            <Satellite name={selectedSatellite.name} size={50} />
+            <Satellite name={selectedSatellite.name} size={80} />
           </OrbitalMoving>
         )}
         <Planet isDarkMode={isDarkMode} colors={colors} />
@@ -81,11 +81,11 @@ const Body = styled.div`
 
 const Title = styled.h1<{ isDarkMode: boolean }>`
   position: absolute;
-  top: 150px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
   color: ${(props) => (props.isDarkMode ? "#fff" : "#000")};
-  font-size: 24px;
+  font-size: 32px;
   font-weight: medium;
 `;
 
