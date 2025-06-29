@@ -9,6 +9,8 @@ interface StorageContext {
   addSatelliteIdList: (id: number) => void;
   selectedSatelliteId: number;
   handleSelectedSatelliteId: (id: number) => void;
+  isBookmarkOpen: boolean;
+  toggleBookmarkOpen: () => void;
   isInitialized: boolean;
 }
 

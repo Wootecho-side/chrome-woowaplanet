@@ -3,6 +3,7 @@ import { SatelliteData } from "../../data/SatelliteData";
 import type { Satellite } from "../../components/Inventory/InventoryTypes";
 import useInitStorage from "../../hooks/useInitStorage";
 import {
+  IS_BOOKMARK_OPEN_KEY,
   SATELLITE_ID_LIST_KEY,
   SELECTED_SATELLITE_ID_KEY,
   TOKEN_STORAGE_KEY,
@@ -20,6 +21,8 @@ export const StorageProvider = ({
     setSatelliteIdList,
     selectedSatelliteId,
     setSelectedSatelliteId,
+    isBookmarkOpen,
+    setIsBookmarkOpen,
     setStorageValue,
     isInitialized,
   } = useInitStorage();
@@ -47,6 +50,11 @@ export const StorageProvider = ({
     setStorageValue(SELECTED_SATELLITE_ID_KEY, id);
   };
 
+  const toggleBookmarkOpen = () => {
+    setIsBookmarkOpen((prev) => !prev);
+    setStorageValue(IS_BOOKMARK_OPEN_KEY, !isBookmarkOpen);
+  };
+
   return (
     <StorageContext.Provider
       value={{
@@ -59,6 +67,8 @@ export const StorageProvider = ({
         addSatelliteIdList,
         selectedSatelliteId,
         handleSelectedSatelliteId,
+        isBookmarkOpen,
+        toggleBookmarkOpen,
         isInitialized,
       }}
     >
