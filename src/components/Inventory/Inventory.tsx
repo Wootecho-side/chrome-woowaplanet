@@ -14,8 +14,6 @@ export default function Inventory({
   amount = 8,
 }: InventoryProps) {
   const [showItems, setShowItems] = useState(false);
-  const { page, separatedItems, movePrevPage, moveNextPage } =
-    useSatellitePagination(inventory, amount);
 
   const toggleInventory = () => {
     setShowItems((prev) => !prev);
@@ -43,11 +41,8 @@ export default function Inventory({
             transition={{ duration: 0.3 }}
           >
             <SatelliteItemPagination
-              page={page}
-              movePrevPage={movePrevPage}
-              moveNextPage={moveNextPage}
+              inventory={inventory}
               amount={amount}
-              separatedItems={separatedItems}
               selected={selected}
               handleSelect={handleSelect}
               isDarkMode={isDarkMode}
@@ -60,10 +55,7 @@ export default function Inventory({
 }
 
 interface SatelliteItemPaginationProps {
-  page: number;
-  movePrevPage: () => void;
-  moveNextPage: () => void;
-  separatedItems: Satellite[][];
+  inventory: Satellite[];
   amount: number;
   selected: number | null;
   handleSelect: (id: number) => void;
@@ -71,10 +63,7 @@ interface SatelliteItemPaginationProps {
 }
 
 const SatelliteItemPagination = ({
-  page,
-  movePrevPage,
-  moveNextPage,
-  separatedItems,
+  inventory,
   amount,
   selected,
   handleSelect,
@@ -82,6 +71,8 @@ const SatelliteItemPagination = ({
 }: SatelliteItemPaginationProps) => {
   const ICON_SIZE = 50;
   const rowLength = ICON_SIZE * amount + 10 * amount;
+  const { page, separatedItems, movePrevPage, moveNextPage } =
+    useSatellitePagination(inventory, amount, selected);
 
   return (
     <S.Container>
