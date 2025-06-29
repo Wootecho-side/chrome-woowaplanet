@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
 export const InventoryWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -13,6 +19,7 @@ export const ItemsWrapper = styled(motion.div)`
   overflow-x: auto;
   max-width: 100%;
 `;
+
 interface ItemBoxProps {
   iconSize: number;
   isSelected: boolean;

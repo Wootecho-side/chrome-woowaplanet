@@ -84,10 +84,10 @@ const SatelliteItemPagination = ({
   const rowLength = ICON_SIZE * amount + 10 * amount;
 
   return (
-    <>
+    <S.Container>
       <IconButton
-        name="dice"
-        size={ICON_SIZE}
+        name="left"
+        size={40}
         onClick={movePrevPage}
         isDarkMode={isDarkMode}
         disabled={page === 0}
@@ -120,12 +120,12 @@ const SatelliteItemPagination = ({
         </S.RowContainer>
       </S.PaginationContainer>
       <IconButton
-        name="dice"
-        size={50}
+        name="right"
+        size={40}
         onClick={moveNextPage}
         isDarkMode={isDarkMode}
         disabled={page === separatedItems.length - 1}
       />
-    </>
+    </S.Container>
   );
 };

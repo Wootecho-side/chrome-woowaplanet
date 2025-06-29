@@ -9,7 +9,9 @@ export interface IconButtonProps extends ComponentProps<typeof motion.button> {
     | "github"
     | "bookmark"
     | "woowacourse"
-    | "crewWiki";
+    | "crewWiki"
+    | "left"
+    | "right";
   isDarkMode?: boolean;
 }
 
