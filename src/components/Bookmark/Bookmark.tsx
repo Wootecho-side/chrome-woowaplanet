@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import * as S from "./Bookmark.styles";
 import type { Bookmark } from "./BookmarkTypes";
 import IconButton from "../IconButton/IconButton";
 import BookmarkButton from "../IconButton/BookmarkButton/BookmarkButton";
+import { useStorageContext } from "../../contexts/StorageContext/useStorageContext";
 
 export default function Bookmark({
   bookmarkList,
@@ -12,22 +12,18 @@ export default function Bookmark({
   bookmarkList: Bookmark[];
   isDarkMode?: boolean;
 }) {
-  const [showItems, setShowItems] = useState(false);
-
-  const toggleBookmark = () => {
-    setShowItems((prev) => !prev);
-  };
+  const { isBookmarkOpen, toggleBookmarkOpen } = useStorageContext();
 
   return (
     <S.BookmarkWrapper>
       <BookmarkButton
         size={40}
-        isClicked={showItems}
-        onClick={toggleBookmark}
+        isClicked={isBookmarkOpen}
+        onClick={toggleBookmarkOpen}
         isDarkMode={isDarkMode}
       />
       <AnimatePresence>
-        {showItems && (
+        {isBookmarkOpen && (
           <S.ItemsWrapper
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
