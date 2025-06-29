@@ -4,6 +4,7 @@ import { AnimatePresence } from "motion/react";
 import * as S from "./Inventory.styles";
 import type { InventoryProps, Satellite } from "./InventoryTypes";
 import IconButton from "../IconButton/IconButton";
+import useSatellitePagination from "../../hooks/useSatellitePagination";
 
 export default function Inventory({
   inventory,
@@ -12,25 +13,9 @@ export default function Inventory({
   isDarkMode = false,
   amount = 8,
 }: InventoryProps) {
-  const [page, setPage] = useState(0);
   const [showItems, setShowItems] = useState(false);
-
-  const separatedItems = inventory.reduce<Satellite[][]>((acc, item, index) => {
-    const chunkIndex = Math.floor(index / amount);
-    if (!acc[chunkIndex]) {
-      acc[chunkIndex] = [];
-    }
-    acc[chunkIndex].push(item);
-    return acc;
-  }, []);
-
-  const movePrevPage = () => {
-    setPage((prev) => Math.max(0, prev - 1));
-  };
-
-  const moveNextPage = () => {
-    setPage((prev) => Math.min(separatedItems.length - 1, prev + 1));
-  };
+  const { page, separatedItems, movePrevPage, moveNextPage } =
+    useSatellitePagination(inventory, amount);
 
   const toggleInventory = () => {
     setShowItems((prev) => !prev);
