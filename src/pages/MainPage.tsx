@@ -22,6 +22,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
 
   useRefreshAddToken();
 
+  const hasAllSatellite = satelliteList.length >= SatelliteData.length;
   const selectedSatellite = SatelliteData.find(
     (satellite) => satellite.id === selectedSatelliteId
   );
@@ -32,7 +33,11 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
     <>
       <Header>
         <Bookmark bookmarkList={BookmarkList} isDarkMode={isDarkMode} />
-        <Shop token={token} isDarkMode={isDarkMode} />
+        <Shop
+          token={token}
+          isDarkMode={isDarkMode}
+          isClosed={hasAllSatellite}
+        />
       </Header>
       <Body>
         <Title isDarkMode={isDarkMode}>{colors.name} 행성이</Title>

@@ -1,6 +1,7 @@
 import type { Satellite } from "../components/Inventory/InventoryTypes";
 
 export const SatelliteData: Satellite[] = [
+  { id: 0, name: "special", rank: "special", icon: "🌟" },
   { id: 1, name: "star", rank: "normal", icon: "💫" },
   { id: 2, name: "flamingo", rank: "rare", icon: "🦩" },
   { id: 3, name: "earth", rank: "normal", icon: "🌍" },
@@ -15,5 +16,4 @@ export const SatelliteData: Satellite[] = [
   { id: 12, name: "balloon", rank: "normal", icon: "🎈" },
   { id: 13, name: "ghost", rank: "normal", icon: "👻" },
   { id: 14, name: "watermelon", rank: "normal", icon: "🍉" },
-  { id: 15, name: "special", rank: "special", icon: "🌟" },
 ];
