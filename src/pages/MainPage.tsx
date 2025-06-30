@@ -45,7 +45,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
           <OrbitalMoving
             center={{ x: 0, y: 0, zIndex: 13 }}
             radius={{ x: 200, y: 80 }}
-            speed={100}
+            speed={50}
             initialAngle={0}
             initialOrbitRotationAngle={-30}
           >

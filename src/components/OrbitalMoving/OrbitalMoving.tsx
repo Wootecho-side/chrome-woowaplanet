@@ -62,7 +62,17 @@ const OrbitalMoving = ({
       : centerZIndex - 5;
   });
 
-  return <S.Container style={{ x, y, zIndex }}>{children}</S.Container>;
+  return (
+    <S.Container
+      style={{ x, y, zIndex }}
+      animate={{
+        rotate: "360deg",
+        transition: { duration: 10, repeat: Infinity },
+      }}
+    >
+      {children}
+    </S.Container>
+  );
 };
 
 export default OrbitalMoving;
