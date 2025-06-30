@@ -20,7 +20,19 @@ export default function Planet({
 
   return (
     <S.Wrapper>
-      <S.PlanetCore animate={shakeControls}>
+      <S.PlanetCore
+        animate={shakeControls}
+        initial={{ y: 0 }}
+        whileInView={{
+          y: [10, -10],
+          transition: {
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror",
+          },
+        }}
+      >
         <S.ClickableOverlay onTap={setNextRandomShakeAnimation} />
         <S.EyeLayer>
           <EyeMoving size={700} maxMovingValue={10}>
