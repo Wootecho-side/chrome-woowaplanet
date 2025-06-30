@@ -22,11 +22,6 @@ const shakeAnimations: TargetAndTransition[] = [
     rotate: [0, 360],
     transition: { duration: 0.8, ease: "easeInOut", repeat: 0 },
   },
-
-  {
-    y: [0, -10, 0, 10, 0],
-    transition: { duration: 2, ease: "easeInOut", repeat: 0 },
-  },
 ];
 
 const useShakeAnimation = () => {
