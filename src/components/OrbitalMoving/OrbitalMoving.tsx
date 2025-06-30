@@ -67,7 +67,11 @@ const OrbitalMoving = ({
       style={{ x, y, zIndex }}
       animate={{
         rotate: "360deg",
-        transition: { duration: 10, repeat: Infinity },
+        transition: {
+          ease: "linear",
+          duration: 10,
+          repeat: Infinity,
+        },
       }}
     >
       {children}
