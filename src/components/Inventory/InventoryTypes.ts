@@ -12,4 +12,5 @@ export interface InventoryProps {
   selected: number | null;
   setSelected: (index: number) => void;
   isDarkMode?: boolean;
+  amount?: number;
 }
