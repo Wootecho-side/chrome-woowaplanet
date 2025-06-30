@@ -17,5 +17,9 @@ export default function BackgroundWrapper({
     setBackground(random);
   }, [isDarkMode]); // 다크모드 변경 감지 시마다 배경색 변경
 
-  return <S.Wrapper background={background}>{children}</S.Wrapper>;
+  return (
+    <S.Wrapper animate={{ opacity: [0, 1] }} background={background}>
+      {children}
+    </S.Wrapper>
+  );
 }

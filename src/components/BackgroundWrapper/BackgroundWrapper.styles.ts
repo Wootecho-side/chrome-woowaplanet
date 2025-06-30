@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-export const Wrapper = styled.div<{ background: string }>`
+import { motion } from "motion/react";
+export const Wrapper = styled(motion.div)<{ background: string }>`
   background-color: ${({ background }) => background};
   height: 100vh;
   display: flex;
