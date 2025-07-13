@@ -3,11 +3,13 @@ import { SatelliteData } from "../../data/SatelliteData";
 import type { Satellite } from "../../components/Inventory/InventoryTypes";
 import useInitStorage from "../../hooks/useInitStorage";
 import {
+  BOOKMARK_LIST_KEY,
   IS_BOOKMARK_OPEN_KEY,
   SATELLITE_ID_LIST_KEY,
   SELECTED_SATELLITE_ID_KEY,
   TOKEN_STORAGE_KEY,
 } from "../../constants/storage";
+import type { Bookmark } from "../../components/Bookmark/BookmarkTypes";
 
 export const StorageProvider = ({
   children,
@@ -21,6 +23,8 @@ export const StorageProvider = ({
     setSatelliteIdList,
     selectedSatelliteId,
     setSelectedSatelliteId,
+    bookmarkList,
+    setBookmarkList,
     isBookmarkOpen,
     setIsBookmarkOpen,
     setStorageValue,
@@ -40,14 +44,28 @@ export const StorageProvider = ({
   };
 
   const addSatelliteIdList = (id: number) => {
-    const newList = [...satelliteIdList, id];
-    setSatelliteIdList(newList);
-    setStorageValue(SATELLITE_ID_LIST_KEY, newList);
+    const newSatelliteList = [...satelliteIdList, id];
+    setSatelliteIdList(newSatelliteList);
+    setStorageValue(SATELLITE_ID_LIST_KEY, newSatelliteList);
   };
 
   const handleSelectedSatelliteId = (id: number) => {
     setSelectedSatelliteId(id);
     setStorageValue(SELECTED_SATELLITE_ID_KEY, id);
+  };
+
+  const addBookmark = (bookmark: Bookmark) => {
+    const newBookmarkList = [...bookmarkList, bookmark];
+    setBookmarkList(newBookmarkList);
+    setStorageValue(BOOKMARK_LIST_KEY, newBookmarkList);
+  };
+
+  const removeBookmarkById = (id: number) => {
+    const newBookmarkList = bookmarkList.filter(
+      (bookmark) => bookmark.id !== id
+    );
+    setBookmarkList(newBookmarkList);
+    setStorageValue(BOOKMARK_LIST_KEY, newBookmarkList);
   };
 
   const toggleBookmarkOpen = () => {
@@ -67,6 +85,9 @@ export const StorageProvider = ({
         addSatelliteIdList,
         selectedSatelliteId,
         handleSelectedSatelliteId,
+        bookmarkList,
+        addBookmark,
+        removeBookmarkById,
         isBookmarkOpen,
         toggleBookmarkOpen,
         isInitialized,

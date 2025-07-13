@@ -8,7 +8,6 @@ import styled from "@emotion/styled";
 import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
 import Shop from "../components/Shop/Shop";
 import useRefreshAddToken from "../hooks/useRefreshAddToken";
-import { BookmarkList } from "../data/BookmarkList";
 import Bookmark from "../components/Bookmark/Bookmark";
 import usePlanetColors from "../hooks/usePlanetColors";
 
@@ -18,6 +17,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
     satelliteList,
     selectedSatelliteId,
     handleSelectedSatelliteId,
+    bookmarkList,
   } = useStorageContext();
 
   useRefreshAddToken();
@@ -32,7 +32,7 @@ function MainPage({ isDarkMode }: { isDarkMode: boolean }) {
   return (
     <>
       <Header>
-        <Bookmark bookmarkList={BookmarkList} isDarkMode={isDarkMode} />
+        <Bookmark bookmarkList={bookmarkList} isDarkMode={isDarkMode} />
         <Shop
           token={token}
           isDarkMode={isDarkMode}
