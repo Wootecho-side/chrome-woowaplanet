@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import type { Satellite } from "../../components/Inventory/InventoryTypes";
+import type { Bookmark } from "../../components/Bookmark/BookmarkTypes";
 
 interface StorageContext {
   token: number;
@@ -9,6 +10,9 @@ interface StorageContext {
   addSatelliteIdList: (id: number) => void;
   selectedSatelliteId: number;
   handleSelectedSatelliteId: (id: number) => void;
+  bookmarkList: Bookmark[];
+  addBookmark: (bookmark: Bookmark) => void;
+  removeBookmarkById: (id: number) => void;
   isBookmarkOpen: boolean;
   toggleBookmarkOpen: () => void;
   isInitialized: boolean;

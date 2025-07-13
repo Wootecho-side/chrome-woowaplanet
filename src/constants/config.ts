@@ -1,3 +1,6 @@
+import type { Bookmark } from "../components/Bookmark/BookmarkTypes";
+import { BookmarkList } from "../data/BookmarkList";
+
 export const DRAW_PRICE = 200;
 export const RARE_CHANCE = 0.05;
 export const FREE_TOKEN_RANGE = {
@@ -9,6 +12,7 @@ export const INIT_VALUE = {
   TOKEN: 0,
   SATELLITE_ID_LIST: [1] as number[],
   SELECTED_SATELLITE_ID: 1,
+  BOOKMARK_LIST: BookmarkList as Bookmark[],
 } as const;
 
 export const BACKGROUND_COLOR = {

@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import useStorage from "./useStorage";
 import { INIT_VALUE } from "../constants/config";
 import {
+  BOOKMARK_LIST_KEY,
   IS_BOOKMARK_OPEN_KEY,
   SATELLITE_ID_LIST_KEY,
   SELECTED_SATELLITE_ID_KEY,
   TOKEN_STORAGE_KEY,
 } from "../constants/storage";
+import type { Bookmark } from "../components/Bookmark/BookmarkTypes";
 
 export default function useInitStorage() {
   const { getStorageValue, setStorageValue, initStorageValue } = useStorage();
@@ -18,6 +20,7 @@ export default function useInitStorage() {
   const [selectedSatelliteId, setSelectedSatelliteId] = useState<number>(
     INIT_VALUE.SELECTED_SATELLITE_ID
   );
+  const [bookmarkList, setBookmarkList] = useState<Bookmark[]>([]);
   const [isBookmarkOpen, setIsBookmarkOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -31,6 +34,7 @@ export default function useInitStorage() {
       SELECTED_SATELLITE_ID_KEY,
       INIT_VALUE.SELECTED_SATELLITE_ID
     );
+    initStorageValue<boolean>(BOOKMARK_LIST_KEY, INIT_VALUE.BOOKMARK_LIST);
     initStorageValue<boolean>(IS_BOOKMARK_OPEN_KEY, false);
 
     setToken(getStorageValue<number>(TOKEN_STORAGE_KEY) ?? INIT_VALUE.TOKEN);
@@ -41,6 +45,9 @@ export default function useInitStorage() {
     setSelectedSatelliteId(
       getStorageValue<number>(SELECTED_SATELLITE_ID_KEY) ??
         INIT_VALUE.SELECTED_SATELLITE_ID
+    );
+    setBookmarkList(
+      getStorageValue<Bookmark[]>(BOOKMARK_LIST_KEY) ?? INIT_VALUE.BOOKMARK_LIST
     );
     setIsBookmarkOpen(getStorageValue<boolean>(IS_BOOKMARK_OPEN_KEY) ?? false);
 
@@ -54,6 +61,8 @@ export default function useInitStorage() {
     setSatelliteIdList,
     selectedSatelliteId,
     setSelectedSatelliteId,
+    bookmarkList,
+    setBookmarkList,
     isBookmarkOpen,
     setIsBookmarkOpen,
     setStorageValue,
