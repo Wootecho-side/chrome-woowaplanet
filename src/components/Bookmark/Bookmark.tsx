@@ -31,16 +31,18 @@ export default function Bookmark({
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
-              <IconButton
-                size={40}
-                name={bookmark.name}
-                key={bookmark.name}
-                isDarkMode={isDarkMode}
-                whileHover={{ opacity: 0.8 }}
-                onClick={() => {
-                  window.location.href = bookmark.url;
-                }}
-              />
+              <a href={bookmark.url}>
+                <IconButton
+                  size={40}
+                  name={bookmark.name}
+                  key={bookmark.name}
+                  isDarkMode={isDarkMode}
+                  whileHover={{ opacity: 0.8 }}
+                  onClick={() => {
+                    window.location.href = bookmark.url;
+                  }}
+                />
+              </a>
             ))}
           </S.ItemsWrapper>
         )}
