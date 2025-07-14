@@ -7,10 +7,4 @@ export const BookmarkList: Bookmark[] = [
     name: "github",
     url: "https://github.com/woowacourse",
   },
-  {
-    id: 2,
-    title: "크루위키",
-    name: "crewWiki",
-    url: "https://www.crew-wiki.site/wiki/%EB%8C%80%EB%AC%B8",
-  },
 ];
