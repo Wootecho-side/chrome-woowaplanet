@@ -19,3 +19,11 @@ export const BACKGROUND_COLOR = {
   LIGHT: ["#A9B5DF", "#D6E5FA", "#BFD7ED", "#E3F2FD", "#D0E8FF"],
   DARK: ["#001427", "#000B14", "#0B1D3A", "#1A2B4C", "#14213D"],
 } as const;
+
+export const ICON_OPTIONS = [
+  { name: "home", src: "/button/home.svg" },
+  { name: "search", src: "/button/search.svg" },
+  { name: "article", src: "/button/article.svg" },
+  { name: "github", src: "/button/github.svg" },
+  { name: "mail", src: "/button/mail.svg" },
+];
