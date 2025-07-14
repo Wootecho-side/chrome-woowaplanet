@@ -13,6 +13,8 @@ export const ItemsWrapper = styled(motion.div)`
   align-items: center;
   overflow-x: auto;
   max-width: 100%;
+  position: absolute;
+  left: 80px;
 `;
 interface ItemBoxProps {
   isDarkMode?: boolean;

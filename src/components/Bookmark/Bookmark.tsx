@@ -4,6 +4,9 @@ import type { Bookmark } from "./BookmarkTypes";
 import IconButton from "../IconButton/IconButton";
 import BookmarkButton from "../IconButton/BookmarkButton/BookmarkButton";
 import { useStorageContext } from "../../contexts/StorageContext/useStorageContext";
+import { useState } from "react";
+import BookmarkModal from "../Modal/BookmarkModal";
+import AddButton from "../IconButton/AddButton/AddButton";
 
 export default function Bookmark({
   bookmarkList,
@@ -13,6 +16,8 @@ export default function Bookmark({
   isDarkMode?: boolean;
 }) {
   const { isBookmarkOpen, toggleBookmarkOpen } = useStorageContext();
+
+  const [bookmarkModalOpen, setBookmarkModalOpen] = useState(false);
 
   return (
     <S.BookmarkWrapper>
@@ -44,6 +49,20 @@ export default function Bookmark({
                 />
               </a>
             ))}
+            {bookmarkList.length < 6 && (
+              <AddButton
+                size={40}
+                isClicked={isBookmarkOpen}
+                onClick={() => setBookmarkModalOpen(true)}
+                isDarkMode={isDarkMode}
+              />
+            )}
+            {bookmarkModalOpen && (
+              <BookmarkModal
+                isOpen={bookmarkModalOpen}
+                onClose={() => setBookmarkModalOpen(false)}
+              />
+            )}
           </S.ItemsWrapper>
         )}
       </AnimatePresence>
