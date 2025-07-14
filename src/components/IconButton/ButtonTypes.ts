@@ -3,15 +3,7 @@ import type { ComponentProps } from "react";
 
 export interface IconButtonProps extends ComponentProps<typeof motion.button> {
   size: number;
-  name:
-    | "dice"
-    | "inventory"
-    | "github"
-    | "bookmark"
-    | "woowacourse"
-    | "crewWiki"
-    | "left"
-    | "right";
+  name: string;
   isDarkMode?: boolean;
 }
 
