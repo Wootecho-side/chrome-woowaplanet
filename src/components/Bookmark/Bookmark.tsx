@@ -60,12 +60,10 @@ export default function Bookmark({
                 isDarkMode={isDarkMode}
               />
             )}
-            {bookmarkModalOpen && (
-              <BookmarkModal
-                isOpen={bookmarkModalOpen}
-                onClose={() => setBookmarkModalOpen(false)}
-              />
-            )}
+            <BookmarkModal
+              isOpen={bookmarkModalOpen}
+              onClose={() => setBookmarkModalOpen(false)}
+            />
           </S.ItemsWrapper>
         )}
       </AnimatePresence>
