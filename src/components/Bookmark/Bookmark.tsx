@@ -4,6 +4,9 @@ import type { Bookmark } from "./BookmarkTypes";
 import IconButton from "../IconButton/IconButton";
 import BookmarkButton from "../IconButton/BookmarkButton/BookmarkButton";
 import { useStorageContext } from "../../contexts/StorageContext/useStorageContext";
+import { useState } from "react";
+import BookmarkModal from "../Modal/BookmarkModal";
+import AddButton from "../IconButton/AddButton/AddButton";
 
 export default function Bookmark({
   bookmarkList,
@@ -13,6 +16,8 @@ export default function Bookmark({
   isDarkMode?: boolean;
 }) {
   const { isBookmarkOpen, toggleBookmarkOpen } = useStorageContext();
+
+  const [bookmarkModalOpen, setBookmarkModalOpen] = useState(false);
 
   return (
     <S.BookmarkWrapper>
@@ -31,19 +36,34 @@ export default function Bookmark({
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
-              <a href={bookmark.url}>
-                <IconButton
-                  size={40}
-                  name={bookmark.name}
-                  key={bookmark.name}
-                  isDarkMode={isDarkMode}
-                  whileHover={{ opacity: 0.8 }}
-                  onClick={() => {
-                    window.location.href = bookmark.url;
-                  }}
-                />
-              </a>
+              <S.IconWrapper key={bookmark.name}>
+                <a href={bookmark.url}>
+                  <IconButton
+                    size={40}
+                    name={bookmark.name}
+                    key={bookmark.name}
+                    isDarkMode={isDarkMode}
+                    whileHover={{ opacity: 0.8 }}
+                    onClick={() => {
+                      window.location.href = bookmark.url;
+                    }}
+                  />
+                </a>
+                <S.Tooltip isDarkMode={isDarkMode}>{bookmark.title}</S.Tooltip>
+              </S.IconWrapper>
             ))}
+            {bookmarkList.length < 6 && (
+              <AddButton
+                size={40}
+                isClicked={isBookmarkOpen}
+                onClick={() => setBookmarkModalOpen(true)}
+                isDarkMode={isDarkMode}
+              />
+            )}
+            <BookmarkModal
+              isOpen={bookmarkModalOpen}
+              onClose={() => setBookmarkModalOpen(false)}
+            />
           </S.ItemsWrapper>
         )}
       </AnimatePresence>
