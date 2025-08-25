@@ -26,10 +26,10 @@ export default function BookmarkModal({ isOpen, onClose }: BookmarkModalProps) {
   const { addBookmark } = useStorageContext();
 
   const handleSubmit = () => {
-    if (!title || !url) return alert("입력값을 모두 채워주셔야 합니다.");
-    if (!isValidUrl(url)) {
-      return alert("유효한 URL을 입력해주세요.");
-    }
+    if (!title) return alert("북마크의 이름을 작성해주세요.");
+    if (!url) return alert("북마크의 URL을 작성해주세요.");
+    if (!isValidUrl(url)) return alert("유효한 URL을 입력해주세요.");
+
     addBookmark({ id: Date.now(), title, name: selectedIcon, url });
     onClose();
   };
