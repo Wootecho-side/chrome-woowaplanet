@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "WoowaPlanet",
-  "version": "1.1",
-  "description": "우아한 테크코스의 마스코트 행성이 크롬 확장 프로그램입니다!",
+  "name": "Woowa Planet | 우아한행성이 크롬 페이지",
+  "version": "1.2.0",
+  "description": "우아한테크코스의 마스코트 행성이 크롬 확장 프로그램입니다!",
   "action": {
     "default_icon": {
       "16": "icons/icon16.png",
