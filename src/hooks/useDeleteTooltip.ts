@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useStorageContext } from "../contexts/StorageContext/useStorageContext";
 
 const useDeleteTooltip = (
   tooltipRef: React.RefObject<HTMLDivElement | null>
 ) => {
   const [contextTarget, setContextTarget] = useState<number | null>(null);
+  const { removeBookmarkById } = useStorageContext();
 
   const handleContextMenu = (e: React.MouseEvent, bookmarkId: number) => {
     e.preventDefault();
@@ -11,7 +13,7 @@ const useDeleteTooltip = (
   };
 
   const handleDelete = (bookmarkId: number) => {
-    console.log("삭제:", bookmarkId);
+    removeBookmarkById(bookmarkId);
     setContextTarget(null);
   };
 
