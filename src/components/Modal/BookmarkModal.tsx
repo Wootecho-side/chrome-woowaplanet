@@ -31,7 +31,14 @@ export default function BookmarkModal({ isOpen, onClose }: BookmarkModalProps) {
     if (!isValidUrl(url)) return alert("유효한 URL을 입력해주세요.");
 
     addBookmark({ id: Date.now(), title, name: selectedIcon, url });
+    resetModalValues();
     onClose();
+  };
+
+  const resetModalValues = () => {
+    setTitle("");
+    setUrl("");
+    setSelectedIcon("home");
   };
 
   return (
