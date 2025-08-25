@@ -4,9 +4,10 @@ import type { Bookmark } from "./BookmarkTypes";
 import IconButton from "../IconButton/IconButton";
 import BookmarkButton from "../IconButton/BookmarkButton/BookmarkButton";
 import { useStorageContext } from "../../contexts/StorageContext/useStorageContext";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BookmarkModal from "../Modal/BookmarkModal";
 import AddButton from "../IconButton/AddButton/AddButton";
+import useDeleteTooltip from "../../hooks/useDeleteTooltip";
 
 export default function Bookmark({
   bookmarkList,
@@ -16,6 +17,13 @@ export default function Bookmark({
   isDarkMode?: boolean;
 }) {
   const { isBookmarkOpen, toggleBookmarkOpen } = useStorageContext();
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const {
+    handleContextMenu,
+    handleDelete,
+    handleCancel,
+    checkIsShowDeleteTooltip,
+  } = useDeleteTooltip(tooltipRef);
 
   const [bookmarkModalOpen, setBookmarkModalOpen] = useState(false);
 
@@ -36,7 +44,10 @@ export default function Bookmark({
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
-              <S.IconWrapper key={bookmark.id}>
+              <S.IconWrapper
+                key={bookmark.id}
+                onContextMenu={(e) => handleContextMenu(e, bookmark.id)}
+              >
                 <a href={bookmark.url}>
                   <IconButton
                     size={40}
@@ -50,6 +61,16 @@ export default function Bookmark({
                   />
                 </a>
                 <S.Tooltip isDarkMode={isDarkMode}>{bookmark.title}</S.Tooltip>
+
+                {checkIsShowDeleteTooltip(bookmark.id) && (
+                  <S.DeleteTooltip ref={tooltipRef} isDarkMode={isDarkMode}>
+                    <p>삭제하시겠습니까?</p>
+                    <button onClick={() => handleDelete(bookmark.id)}>
+                      삭제
+                    </button>
+                    <button onClick={handleCancel}>취소</button>
+                  </S.DeleteTooltip>
+                )}
               </S.IconWrapper>
             ))}
             {bookmarkList.length < 6 && (
