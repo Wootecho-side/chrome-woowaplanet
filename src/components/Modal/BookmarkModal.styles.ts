@@ -40,8 +40,16 @@ export const Button = styled.button`
 export const IconGrid = styled.div`
   display: flex;
   gap: 10px;
-  margin-top: 16px;
+  margin: 16px;
   justify-content: center;
+`;
+
+export const DetailDescription = styled.p`
+  text-align: center;
+  color: #aaa;
+  & > span {
+    color: #777;
+  }
 `;
 
 export const IconOption = styled.button<{ isSelected: boolean }>`

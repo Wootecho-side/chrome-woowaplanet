@@ -73,6 +73,9 @@ export default function BookmarkModal({ isOpen, onClose }: BookmarkModalProps) {
             </S.IconOption>
           ))}
         </S.IconGrid>
+        <S.DetailDescription>
+          🗑️ 추가한 북마크는 <span>우클릭을 눌러 삭제</span>할 수 있습니다.
+        </S.DetailDescription>
       </Modal.Body>
       <Modal.Footer>
         <S.Button onClick={handleSubmit}>
