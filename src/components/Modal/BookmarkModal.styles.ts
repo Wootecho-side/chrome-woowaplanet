@@ -46,13 +46,16 @@ export const IconGrid = styled.div`
 
 export const IconOption = styled.button<{ isSelected: boolean }>`
   font-size: 24px;
-  padding: 8px 10px;
+  padding: 10px;
   border: 2px solid ${({ isSelected }) => (isSelected ? "#333" : "#ccc")};
   background-color: ${({ isSelected }) =>
     isSelected ? "#f0f0f0" : "transparent"};
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     border-color: #666;
