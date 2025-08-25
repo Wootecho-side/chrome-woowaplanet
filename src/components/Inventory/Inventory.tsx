@@ -86,8 +86,9 @@ const SatelliteItemPagination = ({
 
       <S.PaginationContainer iconSize={ICON_SIZE} rowLength={rowLength}>
         <S.RowContainer startX={rowLength * page}>
-          {separatedItems.map((separatedItem) => (
+          {separatedItems.map((separatedItem, index) => (
             <S.ItemRow
+              key={index}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
