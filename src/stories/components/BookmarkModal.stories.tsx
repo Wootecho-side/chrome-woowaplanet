@@ -17,23 +17,13 @@ type Story = StoryObj<typeof BookmarkModal>;
 export const Default: Story = {
   render: () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [bookmarks, setBookmarks] = useState<
-      { title: string; url: string }[]
-    >([]);
-
-    const handleAdd = (bookmark: { title: string; url: string }) => {
-      setBookmarks((prev) => [...prev, bookmark]);
-    };
+    const [bookmarks] = useState<{ title: string; url: string }[]>([]);
 
     return (
       <div>
         <button onClick={() => setIsOpen(true)}>+ 북마크 추가</button>
 
-        <BookmarkModal
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          onSubmit={handleAdd}
-        />
+        <BookmarkModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
         <ul style={{ marginTop: "1rem" }}>
           {bookmarks.map((bm, index) => (
