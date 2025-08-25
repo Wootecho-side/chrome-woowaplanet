@@ -36,7 +36,7 @@ export default function Bookmark({
             transition={{ duration: 0.3 }}
           >
             {bookmarkList.map((bookmark) => (
-              <S.IconWrapper key={bookmark.name}>
+              <S.IconWrapper key={bookmark.id}>
                 <a href={bookmark.url}>
                   <IconButton
                     size={40}
