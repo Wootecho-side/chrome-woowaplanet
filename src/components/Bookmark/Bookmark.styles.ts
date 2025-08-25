@@ -13,7 +13,7 @@ export const IconWrapper = styled.div`
 
   &:hover span {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 `;
 
@@ -21,7 +21,7 @@ export const Tooltip = styled.span<{ isDarkMode?: boolean }>`
   position: absolute;
   bottom: -30px;
   left: 50%;
-  transform: translateX(-30%) translateY(10px);
+  transform: translateX(-50%) translateY(5px);
   background: ${({ isDarkMode }) => (isDarkMode ? "#333" : "#e3e3e3")};
   color: ${({ isDarkMode }) => (isDarkMode ? "#e3e3e3" : "#333")};
   padding: 4px 8px;
