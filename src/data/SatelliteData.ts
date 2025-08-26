@@ -27,4 +27,7 @@ export const SatelliteData: Satellite[] = [
   { id: 23, name: "pumpkin", rank: "normal", icon: "🎃" },
   { id: 24, name: "fire", rank: "normal", icon: "🔥" },
   { id: 25, name: "cloud", rank: "normal", icon: "☁️" },
+  { id: 26, name: "clock", rank: "normal", icon: "🕑" },
+  { id: 27, name: "billiard", rank: "normal", icon: "🎱" },
+  { id: 28, name: "palette", rank: "normal", icon: "🎨" },
 ];
