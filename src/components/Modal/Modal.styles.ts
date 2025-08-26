@@ -12,6 +12,9 @@ export const Overlay = styled(motion.div)`
 `;
 
 export const Container = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   background: white;
   border-radius: 12px;
   padding: 24px;

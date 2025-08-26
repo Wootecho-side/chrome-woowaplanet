@@ -26,12 +26,19 @@ export default function BookmarkModal({ isOpen, onClose }: BookmarkModalProps) {
   const { addBookmark } = useStorageContext();
 
   const handleSubmit = () => {
-    if (!title || !url) return alert("입력값을 모두 채워주셔야 합니다.");
-    if (!isValidUrl(url)) {
-      return alert("유효한 URL을 입력해주세요.");
-    }
+    if (!title) return alert("북마크의 이름을 작성해주세요.");
+    if (!url) return alert("북마크의 URL을 작성해주세요.");
+    if (!isValidUrl(url)) return alert("유효한 URL을 입력해주세요.");
+
     addBookmark({ id: Date.now(), title, name: selectedIcon, url });
+    resetModalValues();
     onClose();
+  };
+
+  const resetModalValues = () => {
+    setTitle("");
+    setUrl("");
+    setSelectedIcon("home");
   };
 
   return (
@@ -66,6 +73,9 @@ export default function BookmarkModal({ isOpen, onClose }: BookmarkModalProps) {
             </S.IconOption>
           ))}
         </S.IconGrid>
+        <S.DetailDescription>
+          🗑️ 추가한 북마크는 <span>우클릭을 눌러 삭제</span>할 수 있습니다.
+        </S.DetailDescription>
       </Modal.Body>
       <Modal.Footer>
         <S.Button onClick={handleSubmit}>
